@@ -11,8 +11,8 @@ NeoBundle 'Shougo/neobundle.vim'
 "NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
-"NeoBundle 'smooth_scroll.vim'
-"NeoBundle "Lokaltog/vim-powerline"
+NeoBundle 'Smooth-Scroll'
+NeoBundle "Lokaltog/vim-powerline"
 "NeoBundle "mattn/zencoding-vim"
 
 
