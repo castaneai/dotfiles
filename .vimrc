@@ -1,38 +1,21 @@
+" NeoBudleを使うための準備
 set nocompatible
+filetype off
 filetype plugin indent off
-
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
-	call neobundle#rc(expand('~/.vim/bundle/'))
+	set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
+	call neobundle#rc(expand('$HOME/.vim/bundle/'))
 endif
 
+" NeoBundleのプラグインリスト
 NeoBundle 'Shougo/neobundle.vim'
-"NeoBundle 'Shougo/vimproc'
-"NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Smooth-Scroll'
 NeoBundle "Lokaltog/vim-powerline"
-"NeoBundle "mattn/zencoding-vim"
+NeoBundle "mattn/zencoding-vim"
 
-
-"Bundle 'gmarik/vundle'
-"Bundle 'ZenCoding.vim'
-"Bundle 'surround.vim'
-"Bundle 'neocomplcache'
-"Bundle 'Shougo/git-vim'
-"Bundle 'thinca/vim-quickrun'
-"Bundle 'unite.vim'
-"Bundle 'cakebaker/scss-syntax.vim'
-"Bundle 'html5.vim'
-"Bundle 'Shougo/vimproc'
-"Bundle 'avakhov/vim-yaml'
-"Bundle 'vim-coffee-script'
-"Bundle 'lunaru/vim-twig'
-"Bundle 'beyondwords/vim-twig'
-" ----------------------------------------------------
-" Highlight cursor line
-" ----------------------------------------------------
+" 現在の行をハイライトする
 set cursorline
 " Only current window highlighting
 augroup cch
