@@ -32,8 +32,8 @@ NeoBundle "tpope/vim-haml"
 NeoBundle "groenewege/vim-less"
 " インデントガイド
 NeoBundle "nathanaelkane/vim-indent-guides"
-" rubyへの対応
-NeoBundle "vim-ruby/vim-ruby"
+" ローカルvimrcファイル
+NeoBundle "embear/vim-localvimrc"
 
 " 設定ファイルを編集するショートカット
 nnoremap <silent> <Leader>v :tabnew $MYVIMRC<CR>
@@ -163,6 +163,11 @@ noremap <silent> <C-P> :Unite file_rec -default-action=tabopen<CR>
 
 " vim起動時にneocomplcacheを有効にする
 let g:neocomplcache_enable_at_startup=1
+
+" uniteは入力モードで開始する
+let g:unite_enable_start_insert=0
+" uniteはESCを2回押すと終了する
+au FileType unite noremap <silent> <buffer> <Esc><Esc> :q<CR>
 
 " スニペットのキーマッピングを設定
 imap <C-k> <Plug>(neocomplcache_snippets_expand)
