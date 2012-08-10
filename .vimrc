@@ -30,11 +30,10 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "tpope/vim-haml"
 " LESSへの対応
 NeoBundle "groenewege/vim-less"
+" Stylusへの対応
+NeoBundle "wavded/vim-stylus"
 " インデントガイド
 NeoBundle "nathanaelkane/vim-indent-guides"
-" ローカルvimrcファイル
-NeoBundle "embear/vim-localvimrc"
-
 " 設定ファイルを編集するショートカット
 nnoremap <silent> <Leader>v :tabnew $MYVIMRC<CR>
 
@@ -47,7 +46,7 @@ augroup END
 " CoffeeScriptを保存時に自動コンパイルする
 " autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
 " ↑silentをつけるとquickfixが勝手に閉じられる。なぜだ？今のところ原因不明なのでsilentを消しておく。
-autocmd BufWritePost *.coffee CoffeeMake! -cb | cwindow | redraw!
+" autocmd BufWritePost *.coffee CoffeeMake! -cb | cwindow | redraw!
 
 " 現在の行をハイライトする
 set cursorline
