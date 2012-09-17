@@ -22,20 +22,24 @@ NeoBundle 'Smooth-Scroll'
 NeoBundle "Lokaltog/vim-powerline"
 " Zen-Coding (htmlタグ入力支援)
 NeoBundle "mattn/zencoding-vim"
-" カラースキーマ
-NeoBundle "nanotech/jellybeans.vim"
 " coffeescriptへの対応
 NeoBundle "kchmck/vim-coffee-script"
-" hamlへの対応
-NeoBundle "tpope/vim-haml"
-" LESSへの対応
-NeoBundle "groenewege/vim-less"
 " Stylusへの対応
 NeoBundle "wavded/vim-stylus"
 " インデントガイド
 NeoBundle "nathanaelkane/vim-indent-guides"
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+
+" カラースキーマ
+NeoBundle "altercation/vim-colors-solarized"
+set background=dark
+colorscheme solarized
+
 " 設定ファイルを編集するショートカット
 nnoremap <silent> <Leader>v :tabnew $MYVIMRC<CR>
+nnoremap <silent> <Leader>gv :tabnew $MYGVIMRC<CR>
 
 " 設定ファイルを保存時に自動リロードする
 augroup myvimrc
@@ -43,102 +47,63 @@ augroup myvimrc
 	au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc source $MYVIMRC | if has('gui_running') | source $MYGVIMRC | endif
 augroup END
 
-" CoffeeScriptを保存時に自動コンパイルする
-" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
-" ↑silentをつけるとquickfixが勝手に閉じられる。なぜだ？今のところ原因不明なのでsilentを消しておく。
-" autocmd BufWritePost *.coffee CoffeeMake! -cb | cwindow | redraw!
-
-" 現在の行をハイライトする
-set cursorline
-" かれんとウィンドウのみにカーソルラインを引く
-augroup cch
-	autocmd! cch
-	autocmd WinLeave * set nocursorline
-	autocmd WinEnter,BufRead * set cursorline
-augroup END
-
-"highlight clear CursorLine
-"highlight CursorLine gui=underline
-"highlight CursorLine ctermbg=black guibg=black
-" ----------------------------------------------------
-" Move tabs with <C-hjkl>
-" ----------------------------------------------------
 " スクロール時の余白を確保
 set scrolloff=5
-
 " 自動折り返しをしない
 set textwidth=0
-
 " バックアップ、スワップファイルを作らない
 set nobackup
 set noswapfile
-
 " バックスペースで様々な文字を消せる
 set backspace=indent,eol,start
-
 " Beep音を無効化
 set vb t_vb=
-
 " カーソルが行頭行末で止まらない
 set whichwrap=b,s,h,l,<,>,[,]
-
-" コマンド、モードをステータスラインに表示
-set showcmd
-set showmode
-
 " OSのクリップボードを使う
 set clipboard+=unnamed
-
-" 文字セット
+" ファイルフォーマット
 set fileformats=unix,dos,mac
+" 文字セット
 set encoding=utf-8
-
 " モードライン（ファイル中のvim:コメントによりvimの設定を制御する機能）
-" set modeline
-" ----------------------------------------------------
-" FileType
-" ----------------------------------------------------
+set modeline
+" 現在の行をハイライト
+" ハイライトの色などはカラースキーマで決められている
+set cursorline
+set cursorcolumn
+" ファイルタイプ
 filetype plugin on
 filetype indent on
 
 autocmd FileType html,twig,yaml setlocal tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal expandtab
-" ----------------------------------------------------
-" StatusLine 
-" ----------------------------------------------------
-set laststatus=2
-set ruler
-" ----------------------------------------------------
-" Appearance
-" ----------------------------------------------------
+" 対応する括弧を強調表示
 set showmatch
+" 行番号を表示
 set number
 set display=uhex
-highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
-match ZenkakuSpace /　/
+" 特殊文字を記号で表示
 " ----------------------------------------------------
 " Tab
 " ----------------------------------------------------
+"  \tで新規ドキュメントを新しいタブに作成する
 nnoremap <Leader>t :tabnew<CR>
+" Ctrl + L で次のタブに切り替え
 nnoremap <C-l> :tabn<CR>
+" Ctrl + H で前のタブに切り替え
 nnoremap <C-h> :tabp<CR>
-" ----------------------------------------------------
-" Indent
-" ----------------------------------------------------
-set autoindent
-set smartindent
+"  C言語ライクインデント
+"  この機能にはautoindent, smartindentの機能も含まれている
 set cindent
+" <Tab>文字を見た目上で何文字分の幅に展開するか
 set tabstop=4
-set softtabstop=4
+" vimが挿入する<Tab>文字が何文字分の幅になるか
 set shiftwidth=4
-set noexpandtab
-set smarttab
-" ----------------------------------------------------
-" Colors
-" ----------------------------------------------------
+" Tabキーを入力した際に挿入される空白の量　0の場合tabstopと同じになる
+set softtabstop=0
+" シンタックスカラーリング
 syntax enable
-colorscheme jellybeans
-set t_Co=256
 " ----------------------------------------------------
 " Edit
 " ----------------------------------------------------
@@ -164,7 +129,7 @@ noremap <silent> <C-P> :Unite file_rec -default-action=tabopen<CR>
 let g:neocomplcache_enable_at_startup=1
 
 " uniteは入力モードで開始する
-let g:unite_enable_start_insert=0
+let g:unite_enable_start_insert=1
 " uniteはESCを2回押すと終了する
 au FileType unite noremap <silent> <buffer> <Esc><Esc> :q<CR>
 
@@ -183,6 +148,19 @@ inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_guide_size=1
-let g:indent_guides_start_level=2
+" <space>cdで現在開いているファイルのディレクトリに移動する
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>') 
+function! s:ChangeCurrentDir(directory, bang)
+    if a:directory == ''
+        lcd %:p:h
+    else
+        execute 'lcd' . a:directory
+    endif
+
+    if a:bang == ''
+        pwd
+    endif
+endfunction
+
+" Change current directory.
+nnoremap <silent> <Space>cd :<C-u>CD<CR>
