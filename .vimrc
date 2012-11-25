@@ -28,6 +28,11 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "wavded/vim-stylus"
 " インデントガイド
 NeoBundle "nathanaelkane/vim-indent-guides"
+" jinja(Twig)への対応
+NeoBundle "uggedal/jinja-vim"
+" Python補完
+NeoBundle "davidhalter/jedi-vim"
+
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 1
 let g:indent_guides_guide_size = 1
@@ -76,8 +81,9 @@ set cursorcolumn
 filetype plugin on
 filetype indent on
 
-autocmd FileType html,twig,yaml setlocal tabstop=2 shiftwidth=2
+autocmd FileType html,jinja,yaml setlocal tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal expandtab
+autocmd BufNewFile,BufRead *.twig setfiletype jinja
 " 対応する括弧を強調表示
 set showmatch
 " 行番号を表示
