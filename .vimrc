@@ -14,8 +14,6 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 " 単語補完
 NeoBundle 'Shougo/neocomplcache'
-" スニペット
-NeoBundle 'Shougo/neocomplcache-snippets-complete'
 " スムーズスクロール
 NeoBundle 'Smooth-Scroll'
 " 高級なステータスライン
@@ -26,21 +24,16 @@ NeoBundle "mattn/zencoding-vim"
 NeoBundle "kchmck/vim-coffee-script"
 " Stylusへの対応
 NeoBundle "wavded/vim-stylus"
-" インデントガイド
-NeoBundle "nathanaelkane/vim-indent-guides"
 " jinja(Twig)への対応
 NeoBundle "uggedal/jinja-vim"
-" Python補完
+" Python補完（Pythonオプション付きでコンパイルされたVimが必要）
 NeoBundle "davidhalter/jedi-vim"
-
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 1
-let g:indent_guides_guide_size = 1
 
 " カラースキーマ
 NeoBundle "altercation/vim-colors-solarized"
 set background=dark
 colorscheme solarized
+let g:solarized_italic=0
 
 " 設定ファイルを編集するショートカット
 nnoremap <silent> <Leader>v :tabnew $MYVIMRC<CR>
@@ -88,11 +81,25 @@ autocmd BufNewFile,BufRead *.twig setfiletype jinja
 set showmatch
 " 行番号を表示
 set number
+" 表示できない文字を16進数で表示
 set display=uhex
-" 特殊文字を記号で表示
+
+" ファイル保存時存在しないディレクトリを自動生成する
+augroup vimrc-auto-mkdir
+    autocmd!
+    autocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+    function! s:auto_mkdir(dir, force)
+        if !isdirectory(a:dir) && (a:force ||
+            \ input(printf('"%s" does not exist. Create? [y/N]', a:dir)) =~? '^y\%[es]$')
+            call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+        endif
+    endfunction
+augroup END
 " ----------------------------------------------------
 " Tab
 " ----------------------------------------------------
+" 常に上部にタブバーを表示する
+set showtabline=2
 "  \tで新規ドキュメントを新しいタブに作成する
 nnoremap <Leader>t :tabnew<CR>
 " Ctrl + L で次のタブに切り替え
@@ -129,6 +136,7 @@ set wildmenu
 " ----------------------------------------------------
 " Plugins
 " ----------------------------------------------------
+" カレントディレクトリ以下のファイルを参照できるUnite
 noremap <silent> <C-P> :Unite file_rec -default-action=tabopen<CR>
 
 " vim起動時にneocomplcacheを有効にする
@@ -136,8 +144,8 @@ let g:neocomplcache_enable_at_startup=1
 
 " uniteは入力モードで開始する
 let g:unite_enable_start_insert=1
-" uniteはESCを2回押すと終了する
-au FileType unite noremap <silent> <buffer> <Esc><Esc> :q<CR>
+" uniteはESCを押すと終了する
+au FileType unite noremap <silent> <buffer> <Esc> :q<CR>
 
 " スニペットのキーマッピングを設定
 imap <C-k> <Plug>(neocomplcache_snippets_expand)

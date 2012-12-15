@@ -1,7 +1,28 @@
 source $HOME/.vimrc
-" ƒtƒHƒ“ƒgİ’è
-" ‰p•¶š‚ÍInconsolata, “ú–{Œê‚È‚Ç‚ÌƒƒCƒh•¶š‚ÍMeiryoKe_Gothic‚ğg‚¤
-set guifont=Inconsolata:h12 guifontwide=MeiryoKe_Gothic:h12
-" ƒEƒBƒ“ƒhƒE‚ÌƒTƒCƒY
+" ãƒ•ã‚©ãƒ³ãƒˆè¨­å®š
+" è‹±æ–‡å­—ã¯Inconsolata, æ—¥æœ¬èªãªã©ã®ãƒ¯ã‚¤ãƒ‰æ–‡å­—ã¯MeiryoKe_Gothicã‚’ä½¿ã†
+set guifont=Inconsolata:h11 guifontwide=MeiryoKe_Gothic:h11
+" æ–œä½“æ–‡å­—ï¼ˆã‚¤ã‚¿ãƒªãƒƒã‚¯ï¼‰ã‚’ç„¡åŠ¹ã«ã™ã‚‹
+set guioptions-=T
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚µã‚¤ã‚º
 set lines=40
 set columns=120
+
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚µã‚¤ã‚ºã®è¨˜æ†¶
+let g:save_window_file = expand('~/.vimwinpos')
+augroup SaveWindow
+  autocmd!
+  autocmd VimLeavePre * call s:save_window()
+  function! s:save_window()
+    let options = [
+      \ 'set columns=' . &columns,
+      \ 'set lines=' . &lines,
+      \ 'winpos ' . getwinposx() . ' ' . getwinposy(),
+      \ ]
+    call writefile(options, g:save_window_file)
+  endfunction
+augroup END
+
+if filereadable(g:save_window_file)
+  execute 'source' g:save_window_file
+endif
