@@ -14,8 +14,6 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 " 単語補完
 NeoBundle 'Shougo/neocomplcache'
-" スムーズスクロール
-NeoBundle 'Smooth-Scroll'
 " 高級なステータスライン
 NeoBundle "Lokaltog/vim-powerline"
 " Zen-Coding (htmlタグ入力支援)
@@ -26,8 +24,10 @@ NeoBundle "kchmck/vim-coffee-script"
 NeoBundle "wavded/vim-stylus"
 " jinja(Twig)への対応
 NeoBundle "uggedal/jinja-vim"
-" Python補完（Pythonオプション付きでコンパイルされたVimが必要）
-NeoBundle "davidhalter/jedi-vim"
+" 編集中のスクリプトを実行する
+NeoBundle "thinca/vim-quickrun"
+" Markdownへの対応
+NeoBundle "tpope/vim-markdown"
 
 " カラースキーマ
 NeoBundle "altercation/vim-colors-solarized"
