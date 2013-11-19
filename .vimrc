@@ -7,7 +7,12 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " vimで非同期操作を可能にする, NeoBundleと連携可能
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+    \ 'build': {
+    \   'windows': 'make -f make_mingw32.mak',
+    \   'mac': 'make -f make_mac.mak'
+    \ },
+    \}
 
 " 補完
 NeoBundle 'Shougo/neocomplete'
