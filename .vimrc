@@ -91,6 +91,9 @@ set backspace=start,eol,indent
 set noswapfile
 set nobackup
 
+" 改行時にコメントの/*や"を引き継がないようにする（うざいから）
+autocmd Filetype * set formatoptions-=r
+
 " vimrcを保存したとき自動的に再読み込み
 augroup myvimrc
 	au!
