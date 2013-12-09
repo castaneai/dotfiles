@@ -9,10 +9,9 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " vimで非同期操作を可能にする, NeoBundleと連携可能
 NeoBundle 'Shougo/vimproc', {
     \ 'build': {
-    \   'windows': 'make -f make_mingw32.mak',
-    \   'mac': 'make -f make_mac.mak'
-    \ },
-    \}
+    \   'mac': 'make -f make_mac.mak',
+    \   'unix': 'make -f make_unix.mak',
+    \ }}
 
 " 補完
 NeoBundle 'Shougo/neocomplete'
@@ -30,7 +29,7 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'itchyny/lightline.vim'
 
 " Ctrl+Pで他のファイルにジャンプする
-NeoBundle 'kien/ctrlp.vim'
+" NeoBundle 'kien/ctrlp.vim'
 
 " 自動文法チェッカー 文法チェックツールは各自入れる必要がある
 " javascript => jshint
@@ -42,6 +41,15 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " quickrun
 NeoBundle 'thinca/vim-quickrun'
+
+" Javascriptの少しかしこい補完
+" NeoBundle 'marijnh/tern_for_vim', {
+"    \ 'build': {
+"    \   'others': 'npm install'
+"    \}}
+
+" javascriptシンタックス
+NeoBundle 'pangloss/vim-javascript'
 
 " NeoBundleを動かすのに必要
 filetype plugin indent on
@@ -70,9 +78,6 @@ set cindent
 set t_Co=256
 colorscheme jellybeans
 
-" 対応する括弧をハイライトしない
-" let loaded_matchparen=1
-
 " 行番号を表示
 set number
 
@@ -81,6 +86,10 @@ set laststatus=2
 
 " Backspaceキーで行頭・Tab文字などを消せる
 set backspace=start,eol,indent
+
+" スワップファイルを作成しない
+set noswapfile
+set nobackup
 
 " vimrcを保存したとき自動的に再読み込み
 augroup myvimrc
@@ -103,11 +112,14 @@ nnoremap <silent> <C-h> :tabprevious<CR>
 " neocompleteを起動時にONにする
 let g:neocomplete#enable_at_startup = 1
 
+" 自動補完を開始する最低の文字数
+let g:neocomplete#auto_completion_start_length = 3
+
+" fuzzy補完をOFF
+let g:neocomplete#enable_fuzzy_completion = 0
+
 " <Tab>で補完選択
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" javascriptのかしこい補完をON
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
 "
 " lightline
@@ -115,11 +127,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 let g:lightline = {
 			\ 'colorscheme': 'jellybeans',
 			\ }
-
-"
-" ctrlp
-"
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|tmp|idea)$'
 
 "
 " indent-guides
@@ -134,3 +141,8 @@ let g:indent_guides_guide_size= 1
 " F5キーでquickrun実行
 nnoremap <silent> <F5> :QuickRun -mode n<CR>
 vnoremap <silent> <F5> :QuickRun -mode v<CR>
+" 出力をUTF-8にする
+let g:quickrun_config = {
+            \   "hook/output_encode/enable": 1,
+            \   "hook/output_encode/encoding": "utf-8",
+            \}
