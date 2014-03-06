@@ -103,6 +103,9 @@ augroup END
 " vimのコマンド補完を使いやすく
 set wildmode=longest:full,full
 
+" 左右のカーソル移動で行間を移動できるようにする
+set whichwrap=b,s,<,>,[,]
+
 " Ctrl + L で次のタブに切り替え
 nnoremap <silent> <C-l> :tabnext<CR>
 " Ctrl + H で前のタブに切り替え
