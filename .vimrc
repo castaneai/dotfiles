@@ -24,7 +24,7 @@ else
         \ }}
 
     " 補完
-    if has('lua') && v:version >= 703 && has('patch885')
+    if has('lua') && ( (v:version >= 703 && has('patch885')) || v:version >= 704)
         NeoBundle 'Shougo/neocomplete'
         let g:neocomplete#enable_at_startup = 1
     else
