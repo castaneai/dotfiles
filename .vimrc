@@ -1,61 +1,84 @@
-" プラグイン管理のNeoBundleを起動
-if has('vim_starting')
-	set nocompatible
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+let s:noplugin = 0
+let s:bundle_root = expand('~/.vim/bundle')
+let s:neobundle_root = s:bundle_root . '/neobundle.vim'
+if !isdirectory(s:neobundle_root) || v:version < 702
+    " NeoBundleが存在しないまたはvimのバージョンが古い場合はneobundle読み込まない
+    let s:noplugin = 1
+else
+    " プラグイン管理のNeoBundleを起動
+    if has('vim_starting')
+        set nocompatible
+        execute "set runtimepath+=" . s:neobundle_root
+    endif
+    call neobundle#rc(expand('~/.vim/bundle/'))
+
+    NeoBundleFetch 'Shougo/neobundle.vim'
+
+    " vimで非同期操作を可能にする, NeoBundleと連携可能
+    NeoBundle 'Shougo/vimproc', {
+        \ 'build': {
+        \   'windows': 'make -f make_mingw32.mak',
+        \   'cygwin': 'make -f make_cygwin.mak',
+        \   'mac': 'make -f make_mac.mak',
+        \   'unix': 'make -f make_unix.mak',
+        \ }}
+
+    " 補完
+    if has('lua') && v:version >= 703 && has('patch885')
+        NeoBundle 'Shougo/neocomplete'
+        let g:neocomplete#enable_at_startup = 1
+    else
+        NeoBundle 'Shougo/neocomplcache'
+        let g:neocomplcache_enable_at_startup = 1
+    endif
+
+    " HTMLを楽に書ける(zen-coding)
+    NeoBundle 'mattn/emmet-vim'
+
+    " HTML編集機能を総合的に強化（タグの自動インデントなど）
+    NeoBundle 'othree/html5.vim'
+
+    " 黒背景のカラースキーマ
+    NeoBundle 'nanotech/jellybeans.vim'
+
+    " ステータスバーを豪華にする
+    NeoBundle 'itchyny/lightline.vim'
+
+    " Ctrl+Pで他のファイルにジャンプする
+    " NeoBundle 'kien/ctrlp.vim'
+
+    " 保存時に文法をチェックしてくれる
+    " 文法チェックツールは各自入れる必要がある
+    " javascript => npm install -g jshint
+    " c => gcc
+    NeoBundle 'scrooloose/syntastic'
+
+    " インデントガイド
+    NeoBundle 'nathanaelkane/vim-indent-guides'
+
+    " quickrun
+    NeoBundle 'thinca/vim-quickrun'
+
+    " Javascriptの少しかしこい補完
+    if has('python') && executable('npm')
+        NeoBundleLazy 'marijnh/tern_for_vim', {
+                    \ 'build': 'npm install',
+                    \ 'autoload': {
+                    \ 'functions': ['tern#Complete', 'tern#Enable'],
+                    \ 'filetypes': 'javascript'
+                    \ }}
+    endif
+
+    " javascriptシンタックス
+    NeoBundle 'pangloss/vim-javascript'
+
+    " NeoBundleを動かすのに必要
+    filetype plugin indent on
+
+    " vim起動時に未インストールのNeoBundleがあればプロンプトを出す
+    NeoBundleCheck
+
 endif
-call neobundle#rc(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" vimで非同期操作を可能にする, NeoBundleと連携可能
-NeoBundle 'Shougo/vimproc', {
-    \ 'build': {
-    \   'mac': 'make -f make_mac.mak',
-    \   'unix': 'make -f make_unix.mak',
-    \ }}
-
-" 補完
-NeoBundle 'Shougo/neocomplete'
-
-" HTMLを楽に書ける(zen-coding)
-NeoBundle 'mattn/emmet-vim'
-
-" HTML編集機能を総合的に強化（タグの自動インデントなど）
-NeoBundle 'othree/html5.vim'
-
-" 黒背景のカラースキーマ
-NeoBundle 'nanotech/jellybeans.vim'
-
-" ステータスバーを豪華にする
-NeoBundle 'itchyny/lightline.vim'
-
-" Ctrl+Pで他のファイルにジャンプする
-" NeoBundle 'kien/ctrlp.vim'
-
-" 自動文法チェッカー 文法チェックツールは各自入れる必要がある
-" javascript => jshint
-" c => gcc
-NeoBundle 'scrooloose/syntastic'
-
-" インデントガイド
-NeoBundle 'nathanaelkane/vim-indent-guides'
-
-" quickrun
-NeoBundle 'thinca/vim-quickrun'
-
-" Javascriptの少しかしこい補完
-" NeoBundle 'marijnh/tern_for_vim', {
-"    \ 'build': {
-"    \   'others': 'npm install'
-"    \}}
-
-" javascriptシンタックス
-NeoBundle 'pangloss/vim-javascript'
-
-" NeoBundleを動かすのに必要
-filetype plugin indent on
-
-" vim起動時に未インストールのNeoBundleがあればプロンプトを出す
-NeoBundleCheck
 
 " ファイルの種類に応じてシンタックスハイライト
 syntax on
@@ -106,24 +129,38 @@ set wildmode=longest:full,full
 " 左右のカーソル移動で行間を移動できるようにする
 set whichwrap=b,s,<,>,[,]
 
+" 右端で折り返す
+set wrap
+
+" 80文字目にラインをいれる
+set colorcolumn=80
+
+" 不可視文字をunicodeでオサレに表示
+set list
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+
+" 入力モードでjjと押すとESCとみなす
+inoremap jj <Esc>
+
+" ESCを2回押すとハイライト削除
+nmap <silent> <Esc><Esc> :nohlsearch<CR>
+
 " Ctrl + L で次のタブに切り替え
 nnoremap <silent> <C-l> :tabnext<CR>
 " Ctrl + H で前のタブに切り替え
 nnoremap <silent> <C-h> :tabprevious<CR>
 
-"
-" neocomplete
-" 
+" j,kの移動を折り返された行でも自然に
+nnoremap j gj
+nnoremap k gk
 
-" neocompleteを起動時にONにする
-let g:neocomplete#enable_at_startup = 1
+" vを2回押すと行末まで選択
+vnoremap v $h
 
-" 自動補完を開始する最低の文字数
-let g:neocomplete#auto_completion_start_length = 3
+" w!!で管理者として保存(sudoer限定)
+cmap w!! w !sudo tee > /dev/null %
 
-" fuzzy補完をOFF
-let g:neocomplete#enable_fuzzy_completion = 0
-
+" 補完の設定
 " <Tab>で補完選択
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
