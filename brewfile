@@ -14,7 +14,7 @@ tap caskroom/homebrew-cask || true
 
 install brew-cask || true
 cask install alfred || true
-cask install google-chrome || true
+cask install chromium || true
 cask install google-japanese-ime || true
 cask install iterm2 || true
 
