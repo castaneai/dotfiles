@@ -1,0 +1,22 @@
+# at first, update all packages
+update || true
+
+# using binary formulas. brew uses pre-compiled binaries instead of make.
+tap homebrew/binary
+
+install zsh || true
+install tmux || true
+install lua || true
+install vim --with-lua || true
+
+# desktop apps
+tap caskroom/homebrew-cask || true
+
+install brew-cask || true
+cask install alfred || true
+cask install google-chrome || true
+cask install google-japanese-ime || true
+cask install iterm2 || true
+
+# alfred links cask-installed apps.
+cask alfred link
