@@ -48,6 +48,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 
 export LANG=ja_JP.UTF-8
+export TERM=xterm-256color
 
 unsetopt correct_all
 

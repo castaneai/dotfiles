@@ -39,7 +39,7 @@ else
     NeoBundle 'othree/html5.vim'
 
     " 黒背景のカラースキーマ
-    NeoBundle 'nanotech/jellybeans.vim'
+    NeoBundle 'w0ng/vim-hybrid'
 
     " ステータスバーを豪華にする
     NeoBundle 'itchyny/lightline.vim'
@@ -52,9 +52,6 @@ else
     " javascript => npm install -g jshint
     " c => gcc
     NeoBundle 'scrooloose/syntastic'
-
-    " インデントガイド
-    NeoBundle 'nathanaelkane/vim-indent-guides'
 
     " quickrun
     NeoBundle 'thinca/vim-quickrun'
@@ -83,6 +80,13 @@ endif
 " ファイルの種類に応じてシンタックスハイライト
 syntax on
 
+" カラースキーマ
+if !has('gui_running')
+    set t_Co=256
+endif
+let g:hybrid_use_iTerm_colors = 1
+colorscheme hybrid
+
 " タブをスペースに展開する
 set expandtab
 
@@ -96,10 +100,6 @@ set shiftwidth=4
 " 改行したときインデントを維持する
 " {の後はインデントを追加する
 set cindent
-
-" カラースキーマを適用する
-set t_Co=256
-colorscheme jellybeans
 
 " 行番号を表示
 set number
@@ -132,9 +132,6 @@ set whichwrap=b,s,<,>,[,]
 " 右端で折り返す
 set wrap
 
-" 80文字目にラインをいれる
-set colorcolumn=80
-
 " 不可視文字をunicodeでオサレに表示
 set list
 set listchars=tab:»\ 
@@ -160,23 +157,9 @@ vnoremap v $h
 " w!!で管理者として保存(sudoer限定)
 cmap w!! w !sudo tee > /dev/null %
 
-" 補完の設定
+" neocomplete 補完の設定
 " <Tab>で補完選択
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
-"
-" lightline
-"
-let g:lightline = {
-			\ 'colorscheme': 'jellybeans',
-			\ }
-
-"
-" indent-guides
-"
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size= 1
 
 "
 " quickrun
@@ -186,6 +169,6 @@ nnoremap <silent> <F5> :QuickRun -mode n<CR>
 vnoremap <silent> <F5> :QuickRun -mode v<CR>
 " 出力をUTF-8にする
 let g:quickrun_config = {
-            \   "hook/output_encode/enable": 1,
-            \   "hook/output_encode/encoding": "utf-8",
-            \}
+    \   "hook/output_encode/enable": 1,
+    \   "hook/output_encode/encoding": "utf-8",
+    \}
