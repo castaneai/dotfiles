@@ -137,7 +137,7 @@ set colorcolumn=80
 
 " 不可視文字をunicodeでオサレに表示
 set list
-set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
+set listchars=tab:»\ 
 
 " 入力モードでjjと押すとESCとみなす
 inoremap jj <Esc>
