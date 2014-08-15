@@ -44,6 +44,9 @@ else
     " ステータスバーを豪華にする
     NeoBundle 'itchyny/lightline.vim'
 
+    " Coffee script
+    NeoBundle 'kchmck/vim-coffee-script'
+
     " Ctrl+Pで他のファイルにジャンプする
     " NeoBundle 'kien/ctrlp.vim'
 
@@ -55,16 +58,6 @@ else
 
     " quickrun
     NeoBundle 'thinca/vim-quickrun'
-
-    " Javascriptの少しかしこい補完
-    if has('python') && executable('npm')
-        NeoBundleLazy 'marijnh/tern_for_vim', {
-                    \ 'build': 'npm install',
-                    \ 'autoload': {
-                    \ 'functions': ['tern#Complete', 'tern#Enable'],
-                    \ 'filetypes': 'javascript'
-                    \ }}
-    endif
 
     " javascriptシンタックス
     NeoBundle 'pangloss/vim-javascript'

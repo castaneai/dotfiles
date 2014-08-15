@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="candy"
+ZSH_THEME="wedisagree"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -50,6 +50,8 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 
+# nyae?という邪魔な自動補完を消す
 unsetopt correct_all
 
-alias nw='~/Applications/node-webkit.app/Contents/MacOS/node-webkit'
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"

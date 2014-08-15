@@ -13,10 +13,21 @@ install vim --with-lua || true
 tap caskroom/homebrew-cask || true
 
 install brew-cask || true
-cask install alfred || true
-cask install chromium || true
-cask install google-japanese-ime || true
+cask install --appdir=/Applications alfred || true
+cask install --appdir=/Applications google-chrome || true
+cask install --appdir=/Applications google-chrome google-japanese-ime || true
 cask install iterm2 || true
+cask install --appdir=/Applications google-chrome bartender || true
+cask install smoothmouse || true
+cask install scroll-reverser || true
+cask install evernote || true
+cask install dropbox || true
+cask install --appdir=/Applications google-chrome day-o || true
+cask install virtualbox || true
+cask install vagrant || true
+cask install xtrafinder || true
+cask install intellij-idea-ce || true
 
 # alfred links cask-installed apps.
+open /Applications/Alfred\ 2.app
 cask alfred link
