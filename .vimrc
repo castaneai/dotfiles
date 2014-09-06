@@ -46,6 +46,7 @@ else
 
     " Coffee script
     NeoBundle 'kchmck/vim-coffee-script'
+    autocmd BufNewFile,BufReadPost *.coffee setlocal shiftwidth=2 expandtab
 
     " Ctrl+Pで他のファイルにジャンプする
     " NeoBundle 'kien/ctrlp.vim'
