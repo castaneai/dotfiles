@@ -78,8 +78,12 @@ syntax on
 if !has('gui_running')
     set t_Co=256
 endif
-let g:hybrid_use_iTerm_colors = 1
-colorscheme hybrid
+if s:noplugin
+    colorscheme default
+else
+    let g:hybrid_use_iTerm_colors = 1
+    colorscheme hybrid
+endif
 
 " タブをスペースに展開する
 set expandtab
