@@ -12,6 +12,7 @@ let s:noplugin = 0
 let s:bundle_root = expand('~/.vim/bundle')
 let s:neobundle_root = s:bundle_root . '/neobundle.vim'
 
+" Neobundleが存在しない場合はプラグイン関連のことをしない
 if !isdirectory(s:neobundle_root) || v:version < 702
     let s:noplugin = 1
 else
@@ -19,13 +20,7 @@ else
         set nocompatible
         set runtimepath+=~/.vim/bundle/neobundle.vim/
     endif
-
     call neobundle#begin(expand('~/.vim/bundle/'))
-
-    " NeoBundleのプラグインを並べる前にこれを書く必要がある
-    " 書かないとカラースキーマが正常に見えなくなる可能性がある
-    " (https://github.com/Shougo/neobundle.vim/issues/157)
-
     NeoBundleFetch 'Shougo/neobundle.vim'
 
     " vimで非同期操作を可能にする, NeoBundleを使う場合入れることが推奨されている
@@ -107,8 +102,18 @@ else
     " TabではなくSpace文字でのインデントにもガイドを付けてくれる
     NeoBundle 'Yggdroot/indentLine'
     let g:indentLine_faster = 1
+    " デフォルトのインデントガイドは色が薄いのですこし濃い目の灰色にする
     let g:indentLine_color_term = 8
 
+    " JSONシンタックス
+    NeoBundle 'elzr/vim-json'
+
+    " Ctrl + / でコメントアウト切り替え
+    NeoBundle 'tyru/caw.vim.git'
+    nmap <C-_> <Plug>(caw:i:toggle)
+    vmap <C-_> <Plug>(caw:i:toggle)
+
+    " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
     NeoBundle 'wombat256.vim'
 
