@@ -107,9 +107,13 @@ else
 
     " JSONシンタックス
     NeoBundle 'elzr/vim-json'
+    " jsonの文字列を囲むクォートを隠すのをやめる
+    let g:vim_json_syntax_conceal = 0
+    " indentLineをjsonでも表示されるようにする
+    let g:indentLine_noConcealCursor=""
 
     " Ctrl + / でコメントアウト切り替え
-    NeoBundle 'tyru/caw.vim.git'
+    NeoBundle 'tyru/caw.vim'
     nmap <C-_> <Plug>(caw:i:toggle)
     vmap <C-_> <Plug>(caw:i:toggle)
 
