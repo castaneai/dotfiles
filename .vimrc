@@ -147,6 +147,9 @@ else
     " F5でquickrun実行
     nnoremap <silent><F5> :QuickRun -mode n<CR>
 
+    " アセンブリのシンタックス
+    NeoBundle 'shiracamus/vim-syntax-x86-objdump-d'
+
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
     NeoBundle 'wombat256.vim'
