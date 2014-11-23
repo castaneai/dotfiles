@@ -86,9 +86,6 @@ else
             \ 'build': {'others': 'npm install'},
             \ 'autoload': {'filetypes': ['javascript', 'typescript']}
             \ }
-        " 関数の説明を上ではなく下に表示する
-        " 副作用としてすべての新しいウィンドウが下に追加されるようになる
-        set splitbelow
         " --INSERT-- という表示を消して現在入力中の引数説明が見えるようにする
         " コマンド入力欄の部分の表示が消えるだけで、airlineにはちゃんと表示されるので大丈夫 
         set noshowmode
@@ -102,8 +99,7 @@ else
     " TabではなくSpace文字でのインデントにもガイドを付けてくれる
     NeoBundle 'Yggdroot/indentLine'
     let g:indentLine_faster = 1
-    " デフォルトのインデントガイドは色が薄いのですこし濃い目の灰色にする
-    let g:indentLine_color_term = 8
+    let g:indentLine_color_term = has("mac") ? 239 : 8
 
     " JSONシンタックス
     NeoBundle 'elzr/vim-json'
@@ -116,6 +112,40 @@ else
     NeoBundle 'tyru/caw.vim'
     nmap <C-_> <Plug>(caw:i:toggle)
     vmap <C-_> <Plug>(caw:i:toggle)
+
+    " Golang
+    NeoBundle 'nsf/gocode'
+
+    " Golang gd で定義元にジャンプする
+    NeoBundle 'dgryski/vim-godef'
+    " 新しいタブで定義元を開く
+    let g:godef_split=2
+
+    " golang強化
+    NeoBundle 'vim-jp/vim-go-extra'
+    " golang 保存時に自動でFmt
+    autocmd MyAutoCmd FileType go autocmd BufWritePre <buffer> Fmt
+
+    " quickrun
+    NeoBundle 'thinca/vim-quickrun'
+    " vimprocで非同期実行
+    " 結果は下ウィンドウに5行の高さで表示
+    let g:quickrun_config = {
+        \ "_": {
+        \   "runner": "vimproc",
+        \   "runner/vimproc/updatetime": 60,
+        \   "outputter/buffer/split": "rightbelow 5sp",
+        \   "outputter/error/error": "quickfix",
+        \   "outputter/error/success": "buffer",
+        \   "outputter": "error"
+        \ },
+    \}
+    " Ctrl+Cでquickrunの実行中止
+    nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+    " Ctrl+Xでメインウィンドウ以外を閉じる
+    nnoremap <silent> <C-x> :only<CR>
+    " F5でquickrun実行
+    nnoremap <silent><F5> :QuickRun -mode n<CR>
 
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -171,9 +201,6 @@ set nobackup
 " 改行時にコメントの/*や"を引き継がないようにする（うざいから）
 autocmd MyAutoCmd Filetype * setlocal formatoptions-=ro
 
-" F5でvimrcをリロード
-nmap <silent> <f5> :so $MYVIMRC<CR>
-
 " vimのコマンド補完を使いやすく
 set wildmode=longest:full,full
 
@@ -186,6 +213,8 @@ set wrap
 " 不可視文字をunicodeでオサレに表示
 set list
 set listchars=tab:»\ 
+" 不可視文字の背景色が変えられてしまうのを回避
+autocmd MyAutoCmd VimEnter,ColorScheme * hi SpecialKey ctermbg=NONE
 
 " 入力モードでjjと押すとESCとみなす
 inoremap jj <Esc>
@@ -245,3 +274,15 @@ set ambiwidth=double
 
 " コマンド補完を豪華に
 set wildmenu
+
+" 現在の行をハイライト
+set cursorline
+
+" 新しいウィンドウを右または下に追加する
+set splitright
+set splitbelow
+
+" スクロールの余白を確保
+" 一番下までいってからスクロールが起こると下に何があるか見難いので
+" ３行前からスクロールを始める
+set scrolloff=3
