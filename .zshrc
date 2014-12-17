@@ -15,3 +15,6 @@ if [[ -e "$HOME/.anyenv" ]]; then
     export PATH="$HOME/.anyenv/bin:$PATH"
     eval "$(anyenv init -)"
 fi
+
+# disable correct
+unsetopt correct_all
