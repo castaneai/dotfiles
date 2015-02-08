@@ -1,0 +1,19 @@
+[user]
+    name = castaneai
+    email = castaneai@castaneai.net
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+
+[core]
+    editor = vim
+
+[alias]
+    s = status
+    st = status
+    ss = status -s
+    po = push origin
