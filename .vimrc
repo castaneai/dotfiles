@@ -249,7 +249,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 set mouse=n
 
 " html, ruby, yaml関連はタブ幅2
-autocmd MyAutoCmd BufRead,BufNewFile Gemfile,Rakefile,*.erb,*.rake set ft=ruby
+autocmd MyAutoCmd BufRead,BufNewFile Gemfile,Rakefile,*.rake set ft=ruby
 autocmd MyAutoCmd FileType ruby,html,yaml set sw=2 sts=2 ts=2 expandtab
 
 " omni補完
