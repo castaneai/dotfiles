@@ -176,6 +176,9 @@ else
         \ 'autoload': {'filetypes': ['ruby', 'erb']}
         \ }
 
+    " gitなどの変更箇所を左端に表示
+    NeoBundle 'airblade/vim-gitgutter'
+
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
     NeoBundle 'wombat256.vim'
@@ -197,8 +200,15 @@ endif
 if s:noplugin
     colorscheme default
 else
-    colorscheme wombat256mod
+    if has('mac')
+        colorscheme Tomorrow-Night-Bright
+    else
+        colorscheme wombat256mod
+    endif
 endif
+
+" vim-gitgutterの色を行番号と同じにする
+highlight clear SignColumn
 
 " タブをスペースに展開する
 set expandtab
