@@ -21,3 +21,5 @@ unsetopt correct_all
 
 # restart shell command
 alias relogin='exec $SHELL -l'
+
+export EDITOR=vim
