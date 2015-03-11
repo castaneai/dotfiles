@@ -75,6 +75,9 @@ else
     " c => gcc
     NeoBundle 'scrooloose/syntastic'
 
+    let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['ruby']}
+    let g:syntastic_ruby_checkers = ['rubocop']
+
     " javascript支援 (javascript indentが賢くなる)
     NeoBundleLazy 'pangloss/vim-javascript', {
         \ 'autoload': {'filetypes': ['javascript']}
@@ -149,6 +152,19 @@ else
 
     " アセンブリのシンタックス
     NeoBundle 'shiracamus/vim-syntax-x86-objdump-d'
+
+    " Rubyの静的解析・補完補助
+    NeoBundle 'marcus/rsense'
+    NeoBundle 'supermomonga/neocomplete-rsense.vim'
+
+    let g:rsenseUseOmniFunc = 1
+    if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+    endif
+    let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
+
+    " Rubyの end を自動的に挿入
+    NeoBundle 'tpope/vim-endwise'
 
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -249,8 +265,8 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 set mouse=n
 
 " html, ruby, yaml関連はタブ幅2
-autocmd MyAutoCmd BufRead,BufNewFile Gemfile,Rakefile,*.erb,*.rake set ft=ruby
-autocmd MyAutoCmd FileType ruby,html,yaml set sw=2 sts=2 ts=2 expandtab
+autocmd MyAutoCmd BufRead,BufNewFile Gemfile,Rakefile,*.rake setlocal ft=ruby
+autocmd MyAutoCmd FileType ruby,html,yaml setlocal sw=2 sts=2 ts=2 expandtab
 
 " omni補完
 " javascriptのomni補完はternが自動的に有効にしてくれるのでココには書かない
