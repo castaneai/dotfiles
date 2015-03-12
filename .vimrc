@@ -75,8 +75,12 @@ else
     " c => gcc
     NeoBundle 'scrooloose/syntastic'
 
-    let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['ruby']}
-    let g:syntastic_ruby_checkers = ['rubocop']
+    " Ruby文法チェックはrubocop
+    " ファイル保存時に自動的にチェック
+    if executable('rubocop')
+        let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['ruby']}
+        let g:syntastic_ruby_checkers = ['rubocop']
+    endif
 
     " javascript支援 (javascript indentが賢くなる)
     NeoBundleLazy 'pangloss/vim-javascript', {
@@ -154,8 +158,12 @@ else
     NeoBundle 'shiracamus/vim-syntax-x86-objdump-d'
 
     " Rubyの静的解析・補完補助
-    NeoBundle 'marcus/rsense'
-    NeoBundle 'supermomonga/neocomplete-rsense.vim'
+    NeoBundleLazy 'marcus/rsense', {
+        \ 'autoload': {'filetypes': ['ruby', 'erb']}
+        \ }
+    NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
+        \ 'autoload': {'filetypes': ['ruby', 'erb']}
+        \ }
 
     let g:rsenseUseOmniFunc = 1
     if !exists('g:neocomplete#force_omni_input_patterns')
@@ -164,7 +172,12 @@ else
     let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
 
     " Rubyの end を自動的に挿入
-    NeoBundle 'tpope/vim-endwise'
+    NeoBundleLazy 'tpope/vim-endwise', {
+        \ 'autoload': {'filetypes': ['ruby', 'erb']}
+        \ }
+
+    " gitなどの変更箇所を左端に表示
+    NeoBundle 'airblade/vim-gitgutter'
 
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -187,8 +200,15 @@ endif
 if s:noplugin
     colorscheme default
 else
-    colorscheme wombat256mod
+    if has('mac')
+        colorscheme Tomorrow-Night-Bright
+    else
+        colorscheme wombat256mod
+    endif
 endif
+
+" vim-gitgutterの色を行番号と同じにする
+highlight clear SignColumn
 
 " タブをスペースに展開する
 set expandtab
