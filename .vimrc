@@ -68,39 +68,11 @@ else
     " Coffee script
     NeoBundle 'kchmck/vim-coffee-script'
     autocmd MyAutoCmd FileType coffee setlocal sw=2 ts=2 sts=2 expandtab
-
-    " 保存時に文法をチェックしてくれる
-    " 文法チェックツールは各自入れる必要がある
-    " javascript => npm install -g jshint
-    " c => gcc
-    NeoBundle 'scrooloose/syntastic'
-
-    " Ruby文法チェックはrubocop
-    " ファイル保存時に自動的にチェック
-    if executable('rubocop')
-        let g:syntastic_mode_map = {'mode': 'passive', 'active_filetypes': ['ruby']}
-        let g:syntastic_ruby_checkers = ['rubocop']
-    endif
-
+    
     " javascript支援 (javascript indentが賢くなる)
     NeoBundleLazy 'pangloss/vim-javascript', {
         \ 'autoload': {'filetypes': ['javascript']}
         \ }
-
-    " javascriptのかしこい補完
-    if has('python') && executable('npm')
-        NeoBundleLazy 'marijnh/tern_for_vim', {
-            \ 'build': {'others': 'npm install'},
-            \ 'autoload': {'filetypes': ['javascript', 'typescript']}
-            \ }
-        " --INSERT-- という表示を消して現在入力中の引数説明が見えるようにする
-        " コマンド入力欄の部分の表示が消えるだけで、airlineにはちゃんと表示されるので大丈夫 
-        set noshowmode
-        " 現在入力中の引数説明を表示
-        let g:tern_show_argument_hints = 'on_move'
-        " 関数の引数、返り値も補完に表示する
-        let g:tern_show_signature_in_pum = 1
-    endif
 
     " インデントガイド表示
     " TabではなくSpace文字でのインデントにもガイドを付けてくれる
@@ -120,18 +92,22 @@ else
     nmap <C-_> <Plug>(caw:i:toggle)
     vmap <C-_> <Plug>(caw:i:toggle)
 
-    " Golang
-    NeoBundle 'nsf/gocode'
+    " Golang サポート
+    NeoBundle 'fatih/vim-go', {
+        \ 'autoload': {'filetypes': ['go']}
+        \ }
+
+    " Golang かしこい補完
+    NeoBundle 'nsf/gocode', {
+        \ 'autoload': {'filetypes': ['go']}
+        \ }
 
     " Golang gd で定義元にジャンプする
-    NeoBundle 'dgryski/vim-godef'
+    NeoBundle 'dgryski/vim-godef', {
+        \ 'autoload': {'filetypes': ['go']}
+        \ }
     " 新しいタブで定義元を開く
     let g:godef_split=2
-
-    " golang強化
-    NeoBundle 'vim-jp/vim-go-extra'
-    " golang 保存時に自動でFmt
-    autocmd MyAutoCmd FileType go autocmd BufWritePre <buffer> Fmt
 
     " quickrun
     NeoBundle 'thinca/vim-quickrun'
@@ -157,27 +133,27 @@ else
     " アセンブリのシンタックス
     NeoBundle 'shiracamus/vim-syntax-x86-objdump-d'
 
-    " Rubyの静的解析・補完補助
-    NeoBundleLazy 'marcus/rsense', {
-        \ 'autoload': {'filetypes': ['ruby', 'erb']}
-        \ }
-    NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', {
-        \ 'autoload': {'filetypes': ['ruby', 'erb']}
-        \ }
-
-    let g:rsenseUseOmniFunc = 1
-    if !exists('g:neocomplete#force_omni_input_patterns')
-        let g:neocomplete#force_omni_input_patterns = {}
-    endif
-    let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
-    " Rubyの end を自動的に挿入
-    NeoBundleLazy 'tpope/vim-endwise', {
-        \ 'autoload': {'filetypes': ['ruby', 'erb']}
-        \ }
-
     " gitなどの変更箇所を左端に表示
     NeoBundle 'airblade/vim-gitgutter'
+
+    " 文法チェック関連
+    NeoBundle 'osyo-manga/shabadou.vim'
+    NeoBundle 'osyo-manga/vim-watchdogs'
+    " エラー箇所にカーソルが来るとステータスバーに内容を表示
+    NeoBundle 'dannyob/quickfixstatus' 
+    " エラー箇所の行番号左にSignを表示
+    " 行全体のハイライトはなし、SignのみErrorMsg（赤色）にする
+    NeoBundle 'KazuakiM/vim-qfsigns'
+    let g:qfsigns#Config = {'id': '5051', 'name': 'QFSign'}
+    sign define QFSign linehl=NONE texthl=ErrorMsg text=>>
+    " 保存時に文法チェック
+    let g:watchdogs_check_BufWritePost_enable = 1
+    " watchdogs設定
+    let g:quickrun_config['watchdogs_checker/_'] = {
+        \ "outputter/quickfix/open_cmd": "",
+        \ 'hook/qfsigns_update/enable_exit': 1,
+        \ 'hook/qfsigns_update/priority_exit': 3
+        \ }
 
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
@@ -283,11 +259,6 @@ set mouse=n
 " html, ruby, yaml関連はタブ幅2
 autocmd MyAutoCmd BufRead,BufNewFile Gemfile,Rakefile,*.rake setlocal ft=ruby
 autocmd MyAutoCmd FileType ruby,html,yaml setlocal sw=2 sts=2 ts=2 expandtab
-
-" omni補完
-" javascriptのomni補完はternが自動的に有効にしてくれるのでココには書かない
-autocmd MyAutoCmd FileType scss,css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd MyAutoCmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 
 " vim scriptの \ による行連結の追加インデント量を指定
 " デフォルトでは &sw * 3と3インデント分で嫌だったので&swに
