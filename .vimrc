@@ -200,11 +200,7 @@ endif
 if s:noplugin
     colorscheme default
 else
-    if has('mac')
-        colorscheme Tomorrow-Night-Bright
-    else
-        colorscheme wombat256mod
-    endif
+    colorscheme Tomorrow-Night-Bright
 endif
 
 " vim-gitgutterの色を行番号と同じにする
