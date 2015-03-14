@@ -23,6 +23,9 @@ unsetopt correct_all
 alias relogin='exec $SHELL -l'
 
 export EDITOR=vim
-export GOPATH=$HOME/.go
-export GOROOT=$(go env GOROOT)
-export PATH=$GOPATH/bin:$PATH
+
+if type "go" &>/dev/null; then
+    export GOPATH=$HOME/.go
+    export GOROOT=$(go env GOROOT)
+    export PATH=$GOPATH/bin:$PATH
+fi
