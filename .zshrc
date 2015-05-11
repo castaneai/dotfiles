@@ -29,3 +29,7 @@ if type "go" &>/dev/null; then
     export GOROOT=$(go env GOROOT)
     export PATH=$GOPATH/bin:$PATH
 fi
+
+if type "gomi" &>/dev/null; then
+    alias rm="gomi"
+fi
