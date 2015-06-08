@@ -258,7 +258,7 @@ set mouse=n
 
 " html, ruby, yaml関連はタブ幅2
 autocmd MyAutoCmd BufRead,BufNewFile Gemfile,Rakefile,*.rake setlocal ft=ruby
-autocmd MyAutoCmd FileType ruby,html,yaml setlocal sw=2 sts=2 ts=2 expandtab
+autocmd MyAutoCmd FileType ruby,html,yaml,erb setlocal sw=2 sts=2 ts=2 expandtab
 
 " vim scriptの \ による行連結の追加インデント量を指定
 " デフォルトでは &sw * 3と3インデント分で嫌だったので&swに
