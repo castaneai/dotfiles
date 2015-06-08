@@ -23,6 +23,7 @@ unsetopt correct_all
 alias relogin='exec $SHELL -l'
 
 export EDITOR=vim
+export SUDO_EDITOR=vim
 
 if type "go" &>/dev/null; then
     export GOPATH=$HOME/.go
