@@ -155,6 +155,9 @@ else
         \ 'hook/qfsigns_update/priority_exit': 3
         \ }
 
+    " Elixir対応
+    NeoBundle 'elixir-lang/vim-elixir'
+
     " カラースキーマ
     NeoBundle 'chriskempson/vim-tomorrow-theme'
     NeoBundle 'wombat256.vim'
