@@ -34,3 +34,7 @@ fi
 if type "gomi" &>/dev/null; then
     alias rm="gomi"
 fi
+
+# Visual Studio Code for Mac
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
