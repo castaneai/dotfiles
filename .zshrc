@@ -1,40 +1,37 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+if [[ -f ~/.zplug/init.zsh ]]; then
+    # zplug読み込み
+    source ~/.zplug/init.zsh
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    source ~/.zsh/zplug.zsh
+
+    # zplugのインストールチェック
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+
+    # zplug適用
+    zplug load
 fi
 
-# Customize to your needs...
-if [[ -e "$HOME/.anyenv" ]]; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init - zsh)"
-fi
+# 補完で大文字小文字区別しない
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# disable correct
-unsetopt correct_all
+# 履歴を残す
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
+setopt share_history
 
-# restart shell command
-alias relogin='exec $SHELL -l'
+alias la='ls -la'
+alias se=sudoedit
+alias reload='source ~/.zshrc'
+alias vi=nvim
+alias vim=nvim
+alias sc='sudo systemctl'
 
-export EDITOR=vim
-export SUDO_EDITOR=vim
-
-if type "go" &>/dev/null; then
-    export GOPATH=$HOME/.go
-    export GOROOT=$(go env GOROOT)
-    export PATH=$GOPATH/bin:$PATH
-fi
-
-if type "gomi" &>/dev/null; then
-    alias rm="gomi"
-fi
-
-# Visual Studio Code for Mac
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
-
+export EDITOR=nvim
+export SUDO_EDITOR=nvim
