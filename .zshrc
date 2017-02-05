@@ -1,40 +1,82 @@
-#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+# zplug準備
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-    source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# cdを便利に
+zplug "b4b4r07/enhancd", use:init.sh
+ENHANCD_FILTER="fzy:fzf:peco"
+
+# fuzzy-finder
+zplug "jhawthorn/fzy", \
+    as:command, \
+    rename-to:fzy, \
+    hook-build:"make && sudo make install"
+
+# 非同期実行
+zplug "mafredri/zsh-async"
+
+# pure
+zplug "sindresorhus/pure"
+PURE_PROMPT_SYMBOL="✨ 👉 "
+PURE_GIT_UNTRACKED_DIRTY=0
+
+# コマンド履歴の部分一致検索
+zplug "zsh-users/zsh-history-substring-search"
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=white,bold'
+HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
+HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
+
+# シンタックスハイライト
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
 fi
 
-# Customize to your needs...
-if [[ -e "$HOME/.anyenv" ]]; then
-    export PATH="$HOME/.anyenv/bin:$PATH"
-    eval "$(anyenv init - zsh)"
-fi
+zplug load
 
-# disable correct
-unsetopt correct_all
+# --- 補完系（かなしややこしい）
+zstyle ':completion:*:default' menu select=2
 
-# restart shell command
-alias relogin='exec $SHELL -l'
+zstyle ':completion:*' list-separator '-->'
 
-export EDITOR=vim
-export SUDO_EDITOR=vim
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
-if type "go" &>/dev/null; then
-    export GOPATH=$HOME/.go
-    export GOROOT=$(go env GOROOT)
-    export PATH=$GOPATH/bin:$PATH
-fi
+# 補完候補をとってくる元を色々追加
+zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
 
-if type "gomi" &>/dev/null; then
-    alias rm="gomi"
-fi
+# 補完を色付け
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Visual Studio Code for Mac
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+# 大小文字区別しない
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# 履歴
+HISTFILE=~/.zhistory
+HISTSIZE=10000
+SAVEHIST=10000
+setopt hist_ignore_dups
+setopt share_history
+
+# Ctrl-s でなんか起こるのを防ぐ
+setopt no_flow_control
+
+# cd をいれなくてもディレクトリ名であれば自動的にcd
+setopt auto_cd
+
+# zsh構築用
+alias reload='exec $SHELL -l'
+
+# 言語
+export LANG=ja_JP.UTF-8
+
+# とりあえずalias
+alias ll='ls -lF'
+
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
