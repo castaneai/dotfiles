@@ -41,21 +41,25 @@ fi
 
 zplug load
 
-# --- 補完系（かなしややこしい）
+# 候補が1つのときは補完1つめで決定
 zstyle ':completion:*:default' menu select=2
 
+# オプションの説明だす
+zstyle ':completion:*:options' description 'yes'
+
+# ???
 zstyle ':completion:*' list-separator '-->'
+zstyle ':completion:*:manuals' separate-sections true
 
-zstyle ':completion:*:cd:*' ignore-parents parent pwd
+# 補完に色付け
+zstyle ':completion:*:default' list-colors ""
 
-# 補完候補をとってくる元を色々追加
-zstyle ':completion:*' completer _expand _complete _match _prefix _approximate _list _history
+# 補完候補をグループ分けして表示
+zstyle ':completion:*' format '%B%d%b'
+zstyle ':completion:*' group-name ''
 
-# 補完を色付け
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# 大小文字区別しない
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+# あいまい補完
+zstyle ':completion:*' matcher-list 'r:[[:ascii:]]||[[:ascii:]]=** r:|=* m:{a-z\-}={A-Z\_}'
 
 # 履歴
 HISTFILE=~/.zhistory
@@ -77,6 +81,7 @@ alias reload='exec $SHELL -l'
 export LANG=ja_JP.UTF-8
 
 # とりあえずalias
+alias ls='ls -G'
 alias ll='ls -lF'
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
