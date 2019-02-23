@@ -20,3 +20,5 @@
     po = push origin
     co = checkout
     delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+[pull]
+	rebase = true

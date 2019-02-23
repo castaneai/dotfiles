@@ -9,6 +9,7 @@ alias ts='tig status'
 alias p='ghq look $(ghq list | fzf)'
 alias fig='docker-compose'
 alias reload='exec $SHELL -l'
+[ -x "$(command -v exa)" ] && alias ls='exa'
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
