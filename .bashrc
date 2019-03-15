@@ -11,6 +11,7 @@ alias p='ghq look $(ghq list | fzf)'
 alias fig='docker-compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
+alias co='git checkout $(git branch | fzy)'
 [ -x "$(command -v exa)" ] && alias ls='exa'
 
 
