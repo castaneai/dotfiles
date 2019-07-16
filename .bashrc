@@ -4,6 +4,7 @@ PS1='\w $(__git_ps1 "(%s)") \$ '
 
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
+export DOCKER_BUILDKIT=1
 
 alias ll='ls -la'
 alias ts='tig status'
