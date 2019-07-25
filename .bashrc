@@ -3,7 +3,8 @@ source ~/.git-prompt.sh
 PS1='\w $(__git_ps1 "(%s)") \$ '
 
 export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
 export DOCKER_BUILDKIT=1
 
 alias ll='ls -la'
