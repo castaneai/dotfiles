@@ -1,4 +1,9 @@
-PROMPT='%~ $ '
+autoload -Uz vcs_info
+setopt PROMPT_SUBST
+precmd () { vcs_info }
+zstyle ':vcs_info:*' formats "(%b)"
+
+PROMPT='%~ ${vcs_info_msg_0_} $ '
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
 export ZPLUG_HOME=/usr/local/opt/zplug
