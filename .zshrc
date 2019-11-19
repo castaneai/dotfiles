@@ -25,6 +25,9 @@ export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN:$HOME/bin
 export DOCKER_BUILDKIT=1
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+[ -x "$(command -v goenv)" ] && eval "$(goenv init -)"
 
 alias ll='ls -la'
 alias ts='tig status'
