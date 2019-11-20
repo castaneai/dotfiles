@@ -35,7 +35,10 @@ alias fig='docker-compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
 alias co='git checkout $(git branch | fzy)'
+alias k=kubectl
 [ -x "$(command -v exa)" ] && alias ls='exa'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[ -f ~/.cargo ] && source ~/.cargo/env
 
