@@ -43,3 +43,4 @@ alias k=kubectl
 
 [ -f ~/.cargo ] && source ~/.cargo/env
 
+[ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
