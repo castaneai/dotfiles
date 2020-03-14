@@ -1,2 +1,6 @@
 [aws]
 displayed_items = "all"
+
+[character]
+symbol = "$"
+style_success = "green"
