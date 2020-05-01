@@ -23,7 +23,7 @@ zplug load
 
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOBIN:$HOME/bin
+export PATH=/usr/local/bin:$PATH:$GOBIN:$HOME/bin
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 export GOENV_ROOT="$HOME/.goenv"
@@ -35,7 +35,7 @@ alias ts='tig status'
 alias fig='docker-compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
-alias co='git checkout $(git branch | fzy)'
+alias br='git switch $(git branch | fzy)'
 alias k=kubectl
 [ -x "$(command -v exa)" ] && alias ls='exa'
 
