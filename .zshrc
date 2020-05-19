@@ -44,3 +44,6 @@ alias k=kubectl
 [ -f ~/.cargo ] && source ~/.cargo/env
 
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
+
+# 使わない割に他のコマンドと衝突して邪魔だったので無効化
+export ENHANCD_DISABLE_DOT=1
