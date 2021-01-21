@@ -34,5 +34,6 @@ define_keymap(lambda wm_class: wm_class.casefold() not in terminals, {
     K("Alt-W"): K("Ctrl-W"), # close tab
     K("Alt-A"): K("Ctrl-slash"), # select-all
     K("Alt-Enter"): K("Ctrl-Enter"), # send
+    K("Alt-Z"): K("Ctrl-Z"), # undo
 })
 

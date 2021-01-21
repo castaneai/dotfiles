@@ -30,3 +30,5 @@ alias k=kubectl
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
 
+source ~/.enhancd/init.sh
+
