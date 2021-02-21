@@ -32,8 +32,9 @@ define_keymap(lambda wm_class: wm_class.casefold() not in terminals, {
     K("Alt-V"): K("Ctrl-V"), # paste
     K("Alt-F"): K("Ctrl-F"), # find
     K("Alt-W"): K("Ctrl-W"), # close tab
-    K("Alt-A"): K("Ctrl-slash"), # select-all
+    K("Alt-A"): K("Ctrl-slash"), # select-all for GNOME
     K("Alt-Enter"): K("Ctrl-Enter"), # send
     K("Alt-Z"): K("Ctrl-Z"), # undo
+    K("Alt-S"): K("Ctrl-S"), # save
 })
 
