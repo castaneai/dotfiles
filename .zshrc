@@ -6,6 +6,11 @@ zstyle ':vcs_info:*' formats "(%b)"
 PROMPT='%~ ${vcs_info_msg_0_} $ '
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 
+# history 
+export HISTFILE=${HOME}/.zsh_history
+export SAVEHIST=100000
+setopt hist_ignore_dups
+
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export PATH=/usr/local/bin:$PATH:$GOBIN:$HOME/bin
@@ -31,4 +36,6 @@ alias k=kubectl
 export ENHANCD_DISABLE_DOT=1
 
 source ~/.enhancd/init.sh
+
+source ~/.zshrc.local
 
