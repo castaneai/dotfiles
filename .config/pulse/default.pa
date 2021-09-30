@@ -1,0 +1,5 @@
+.include /etc/pulse/default.pa
+
+# allow TCP access
+load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1;172.0.0.0/24 auth-anonymous=1
+
