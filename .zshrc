@@ -14,7 +14,7 @@ setopt hist_ignore_dups
 
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH=/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin
+export PATH=/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
