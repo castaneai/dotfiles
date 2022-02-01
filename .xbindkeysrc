@@ -41,7 +41,7 @@
 
 
 # b:9 = mx vertical side button
-"env GDK_BACKEND=x11 gnome-screenshot -a -c"
+"gnome-screenshot -i"
   b:9
 
 # set directly keycode (here control + f with my keyboard)
