@@ -10,7 +10,7 @@ zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
-setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 export GOPATH=~/go
