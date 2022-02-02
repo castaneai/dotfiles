@@ -25,6 +25,7 @@ alias fig='docker-compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
+function gfo() { git fetch origin $1:$1 }
 alias k=kubectl
 [ -x "$(command -v exa)" ] && alias ls='exa'
 
@@ -37,7 +38,8 @@ alias k=kubectl
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
 
-source ~/.enhancd/init.sh
+autoload -Uz compinit && compinit
+[ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
 
-source ~/.zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
