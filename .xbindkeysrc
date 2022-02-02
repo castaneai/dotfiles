@@ -40,9 +40,10 @@
 # Examples of commands:
 
 
+# emulate Win+Shift+S on MX Keys mini
 # b:9 = mx vertical side button
-"gnome-screenshot -i"
-  b:9
+"xdotool key super+shift+s"
+  Release+b:9
 
 # set directly keycode (here control + f with my keyboard)
 #"xterm"
