@@ -41,3 +41,4 @@ autoload -Uz compinit && compinit
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+source <(kubectl completion zsh)
