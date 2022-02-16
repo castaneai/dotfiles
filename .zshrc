@@ -41,4 +41,6 @@ autoload -Uz compinit && compinit
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
-source <(kubectl completion zsh)
+[ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
+[ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
+
