@@ -1,7 +1,10 @@
-// Place your key bindings in this file to override the defaults
 [
     {
-    "key": "shift shift",
-    "command": "workbench.action.quickOpen"
+        "key": "shift shift",
+        "command": "workbench.action.quickOpen"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.closeActiveEditor"
     }
 ]
