@@ -45,4 +45,5 @@ define_keymap(lambda wm_class: wm_class.casefold() not in terminals, {
     K("Alt-Z"): K("Ctrl-Z"), # undo
     K("Alt-S"): K("Ctrl-S"), # save
     K("Alt-P"): K("Ctrl-P"), # Go to file (VSCode)
+    K("Alt-N"): K("Ctrl-N"), # New File
 }, "Mac-like Cmd keymap")

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOTFILES_DIR="$(dirname $(readlink -f $0))"
-dotfiles=(.zshrc .tigrc .gitconfig .vimrc .xbindkeyrc)
+dotfiles=(.zshrc .tigrc .gitconfig .vimrc .xbindkeyrc .config/starship.toml .config/pulse/default.pa .xkeysnail)
 for f in "${dotfiles[@]}"; do
     ln -sf "${DOTFILES_DIR}/${f}" ~/${f}
 done
