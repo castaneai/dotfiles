@@ -4,8 +4,8 @@ Description=xkeysnail
 [Service]
 Type=simple
 KillMode=process
-ExecStart=/home/castaneai/.xkeysnail/start.sh
-ExecStop=/usr/bin/sudo /bin/bash -c '/usr/bin/sudo pkill -f bin/xkeysnail && exit 0'
+ExecStartPre=/usr/bin/xhost +SI:localuser:root
+ExecStart=/usr/local/bin/xkeysnail /home/castaneai/.xkeysnail/config.py -q
 Restart=on-failure
 RestartSec=3
 Environment=DISPLAY=:1

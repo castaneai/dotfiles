@@ -11,9 +11,17 @@ define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
 
+def on_gui_editor(wm_class):
+    return wm_class.startswith("jetbrains-") or wm_class == "Code"
+
+def emacs_keybind_enabled(wm_class):
+    # disable on GUI editor because of vim-keybind
+    if on_gui_editor(wm_class):
+        return False
+    return True
  
 # Emacs-like keybindings in non-Emacs applications
-define_keymap(lambda wm_class: wm_class not in ("Emacs", "URxvt"), {
+define_keymap(emacs_keybind_enabled, {
     # Cursor
     K("C-b"): with_mark(K("left")),
     K("C-f"): with_mark(K("right")),
@@ -36,5 +44,5 @@ define_keymap(lambda wm_class: wm_class.casefold() not in terminals, {
     K("Alt-Enter"): K("Ctrl-Enter"), # send
     K("Alt-Z"): K("Ctrl-Z"), # undo
     K("Alt-S"): K("Ctrl-S"), # save
-})
-
+    K("Alt-P"): K("Ctrl-P"), # Go to file (VSCode)
+}, "Mac-like Cmd keymap")
