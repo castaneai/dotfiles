@@ -15,7 +15,7 @@ git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 ## Setup (Ubuntu)
 
 ```sh
-apt install python3-pip xbindkeys exa tig
+apt install python3-pip xbindkeys exa tig xdotool
 pip3 install xkeysnail
 ```
 
