@@ -27,6 +27,14 @@ def emacs_keybind_enabled(wm_class):
         return False
     return True
  
+def on_browser(wm_class):
+    return wm_class.casefold() in ["firefox", "google-chrome"]
+
+define_keymap(on_browser, {
+    # Find in page
+    K("Ctrl-F"): K("Ctrl-F"),
+}, "for browser")
+
 # Emacs-like keybindings in non-Emacs applications
 define_keymap(emacs_keybind_enabled, {
     # Cursor
