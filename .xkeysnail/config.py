@@ -11,6 +11,13 @@ define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
 
+terminals = [term.casefold() for term in ["gnome-terminal"]]
+
+define_conditional_modmap(lambda wm_class: wm_class.casefold() not in terminals, {
+    Key.CAPSLOCK: Key.LEFT_CTRL,
+    Key.LEFT_ALT: Key.LEFT_CTRL,
+})
+
 def on_gui_editor(wm_class):
     return wm_class.startswith("jetbrains-") or wm_class == "Code"
 
@@ -31,19 +38,11 @@ define_keymap(emacs_keybind_enabled, {
     K("C-a"): with_mark(K("home")),
     K("C-e"): with_mark(K("end")),
 }, "Emacs-like keys")
- 
-terminals = [term.casefold() for term in ["gnome-terminal"]]
 
 define_keymap(lambda wm_class: wm_class.casefold() not in terminals, {
-    K("Alt-C"): K("Ctrl-C"), # copy
-    K("Alt-X"): K("Ctrl-X"), # cut
-    K("Alt-V"): K("Ctrl-V"), # paste
-    K("Alt-F"): K("Ctrl-F"), # find
-    K("Alt-W"): K("Ctrl-W"), # close tab
-    K("Alt-A"): K("Ctrl-slash"), # select-all for GNOME
-    K("Alt-Enter"): K("Ctrl-Enter"), # send
-    K("Alt-Z"): K("Ctrl-Z"), # undo
-    K("Alt-S"): K("Ctrl-S"), # save
-    K("Alt-P"): K("Ctrl-P"), # Go to file (VSCode)
-    K("Alt-N"): K("Ctrl-N"), # New File
-}, "Mac-like Cmd keymap")
+    K("Ctrl-A"): K("Ctrl-slash"), # select-all for GNOME
+}, "for GNOME settings")
+
+define_keymap(lambda wm_class: wm_class.casefold() in terminals, {
+    K("Alt-Tab"): K("Ctrl-Tab"),
+}, "for terminal apps")
