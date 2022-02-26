@@ -18,13 +18,7 @@ define_conditional_modmap(lambda wm_class: wm_class.casefold() not in terminals,
     Key.LEFT_ALT: Key.LEFT_CTRL,
 })
 
-def on_gui_editor(wm_class):
-    return wm_class.startswith("jetbrains-") or wm_class == "Code"
-
 def emacs_keybind_enabled(wm_class):
-    # disable on GUI editor because of vim-keybind
-    if on_gui_editor(wm_class):
-        return False
     return True
  
 def on_browser(wm_class):

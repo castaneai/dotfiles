@@ -6,5 +6,6 @@
     "vim.handleKeys": {
         "<C-x>": false,
         "<C-f>": false
-    }
+    },
+    "rust-client.engine": "rust-analyzer"
 }

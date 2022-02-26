@@ -19,7 +19,7 @@ export PATH=/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/n
 
 alias ll='ls -la'
 alias ts='tig status'
-alias fig='docker-compose'
+alias fig='docker compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
