@@ -295,3 +295,6 @@ set splitbelow
 " 一番下までいってからスクロールが起こると下に何があるか見難いので
 " ３行前からスクロールを始める
 set scrolloff=3
+
+" ベル(beep)を鳴らさない
+set belloff=all
