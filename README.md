@@ -22,9 +22,6 @@ pip3 install xkeysnail
 ## Setup (macOS)
 
 ```sh
-brew install exa tig
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-./install.sh
+brew install exa tig fzy
 ```
+
