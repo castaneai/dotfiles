@@ -17,6 +17,15 @@ git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 ```sh
 apt install python3-pip xbindkeys exa tig xdotool
 pip3 install xkeysnail
+./.xkeysnail/install.sh
+```
+
+## Setup (Arch Linux)
+
+```sh
+sudo pacman -S exa tig xdotool xorg-xhost starship
+yay -S xkeysnail
+./.xkeysnail/install.sh
 ```
 
 ## Setup (macOS)
