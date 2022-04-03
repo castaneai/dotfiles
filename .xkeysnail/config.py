@@ -11,7 +11,7 @@ define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
 
-terminals = [term.casefold() for term in ["gnome-terminal"]]
+terminals = [term.casefold() for term in ["gnome-terminal", "Xfce4-terminal"]]
 
 define_conditional_modmap(lambda wm_class: wm_class.casefold() not in terminals, {
     Key.CAPSLOCK: Key.LEFT_CTRL,
