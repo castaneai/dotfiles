@@ -26,7 +26,8 @@ def on_browser(wm_class):
 
 define_keymap(on_browser, {
     # Find in page
-    K("Ctrl-F"): K("Ctrl-F"),
+    # Disabled due to conflict with emacs binding
+    # K("Ctrl-F"): K("Ctrl-F"),
 }, "for browser")
 
 # Emacs-like keybindings in non-Emacs applications
