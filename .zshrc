@@ -1,3 +1,4 @@
+bindkey -e
 autoload -Uz vcs_info
 setopt PROMPT_SUBST
 precmd () { vcs_info }
