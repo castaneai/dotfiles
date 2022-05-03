@@ -9,5 +9,9 @@ for f in "${dotfiles[@]}"; do
 done
 
 mkdir -p ~/.config/Code/User
-ln -sf "${DOTFILES_DIR}/.config/Code/User/settings.json" ~/.config/Code/User/settings.json
-ln -sf "${DOTFILES_DIR}/.config/Code/User/keybindings.json" ~/.config/Code/User/keybindings.json
+ln -nsf "${DOTFILES_DIR}/.config/Code/User/settings.json" ~/.config/Code/User/settings.json
+ln -nsf "${DOTFILES_DIR}/.config/Code/User/keybindings.json" ~/.config/Code/User/keybindings.json
+
+mkdir -p ~/.config/xfce4/terminal
+ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/accels.scm" ~/.config/xfce4/terminal/accels.scm
+ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/terminalrc" ~/.config/xfce4/terminal/terminalrc

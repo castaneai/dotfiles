@@ -7,5 +7,7 @@
         "<C-x>": false,
         "<C-f>": false
     },
-    "rust-client.engine": "rust-analyzer"
+    "rust-client.engine": "rust-analyzer",
+    "editor.fontFamily": "'UDEV Gothic 35NF', monospace",
+    "editor.fontSize": 16
 }
