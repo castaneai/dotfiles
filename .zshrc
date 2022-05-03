@@ -45,4 +45,5 @@ autoload -Uz compinit && compinit
 
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
+[ -x "$(command -v xdg-open)" ] && alias open=xdg-open
 
