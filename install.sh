@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 DOTFILES_DIR="$(dirname $(readlink -f $0))"
-dotfiles=(.zshrc .tigrc .gitconfig .vimrc .xbindkeyrc .config/starship.toml .config/pulse/default.pa .xkeysnail)
+dotfiles=(.zshrc .tigrc .gitconfig .vimrc .xbindkeysrc .config/starship.toml .config/pulse/default.pa .xkeysnail .xprofile)
 for f in "${dotfiles[@]}"; do
     mkdir -p ~/$(dirname ${f})
     ln -nsf "${DOTFILES_DIR}/${f}" ~/${f}
