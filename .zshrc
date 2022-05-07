@@ -16,7 +16,7 @@ setopt HIST_IGNORE_ALL_DUPS
 
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH="/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH="/usr/local/bin:$PATH:$GOBIN:$HOME/.local/bin:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 export EDITOR=vim
 
 alias ll='ls -la'
