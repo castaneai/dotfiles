@@ -16,8 +16,8 @@ setopt HIST_IGNORE_ALL_DUPS
 
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
-export PATH="/usr/local/bin:$PATH:$GOBIN:$HOME/.local/bin:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 export EDITOR=vim
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 
 alias ll='ls -la'
 alias ts='tig status'
@@ -50,3 +50,7 @@ autoload -Uz compinit && compinit
 function k8s-secret-value() {
     kubectl get secret --no-headers -o custom-columns=":metadata.name" | fzy | xargs kubectl get secret -o json | jq '.data | map_values(@base64d)'
 }
+
+# https://github.com/sh0rez/kubectl-neat-diff
+export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
+
