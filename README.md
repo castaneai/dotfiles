@@ -10,6 +10,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 ./install.sh
+curl -sS https://starship.rs/install.sh | sh
 ```
 
 ## Setup (Ubuntu)
@@ -23,7 +24,7 @@ pip3 install xkeysnail
 ## Setup (Arch Linux)
 
 ```sh
-sudo pacman -S exa tig xdotool xorg-xhost starship
+sudo pacman -S exa tig xdotool xorg-xhost
 yay -S xkeysnail
 ./.xkeysnail/install.sh
 ```
@@ -33,4 +34,3 @@ yay -S xkeysnail
 ```sh
 brew install exa tig fzy
 ```
-
