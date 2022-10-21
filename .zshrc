@@ -46,6 +46,7 @@ autoload -Uz compinit && compinit
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
+[ -x "$(command -v bat)" ] && alias cat=bat
 
 function k8s-secret-value() {
     kubectl get secret --no-headers -o custom-columns=":metadata.name" | fzy | xargs kubectl get secret -o json | jq '.data | map_values(@base64d)'
