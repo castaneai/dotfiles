@@ -58,3 +58,5 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
 export DOTNET_CLI_UI_LANGUAGE=en
+
+[ -x "$(command -v gcloud)" ] && source "$(gcloud info --format='value(installation.sdk_root)')/completion.zsh.inc"
