@@ -54,6 +54,7 @@ function k8s-secret-value() {
 
 # https://github.com/sh0rez/kubectl-neat-diff
 export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
 export DOTNET_CLI_UI_LANGUAGE=en
