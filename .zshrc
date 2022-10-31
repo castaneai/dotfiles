@@ -27,8 +27,10 @@ alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
 function gfo() { git fetch origin $1:$1 }
 alias k=kubectl
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -x "$(command -v exa)" ] && alias ls='exa'
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh && fpath=(${ASDF_DIR}/completions $fpath)
 
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
@@ -41,7 +43,7 @@ autoload -Uz compinit && compinit
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
-[ -x "$(command -v bat)" ] && alias cat=bat
+[ -x "$(command -v bat)" ] && alias cat='bat -P'
 
 function k8s-secret-value() {
     kubectl get secret --no-headers -o custom-columns=":metadata.name" | fzy | xargs kubectl get secret -o json | jq '.data | map_values(@base64d)'
@@ -56,4 +58,3 @@ export DOTNET_CLI_UI_LANGUAGE=en
 
 [ -x "$(command -v gcloud)" ] && source "$(gcloud info --format='value(installation.sdk_root)')/completion.zsh.inc"
 
-[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
