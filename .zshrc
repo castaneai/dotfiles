@@ -28,11 +28,6 @@ alias br='git switch $(git branch | fzy)'
 function gfo() { git fetch origin $1:$1 }
 alias k=kubectl
 [ -x "$(command -v exa)" ] && alias ls='exa'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-[ -f ~/.cargo ] && source ~/.cargo/env
-
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
 
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
@@ -60,3 +55,5 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export DOTNET_CLI_UI_LANGUAGE=en
 
 [ -x "$(command -v gcloud)" ] && source "$(gcloud info --format='value(installation.sdk_root)')/completion.zsh.inc"
+
+[ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh
