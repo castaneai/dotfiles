@@ -34,7 +34,7 @@ alias fig='docker compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
-function gfo() { git fetch --set-upstream origin $1:$1 }
+function gfo() { git fetch origin $1:$1 && git branch --set-upstream-to=origin/$1 $1 }
 alias k=kubectl
 [ -x "$(command -v exa)" ] && alias ls='exa'
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
