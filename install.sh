@@ -15,3 +15,7 @@ ln -nsf "${DOTFILES_DIR}/.config/Code/User/keybindings.json" ~/.config/Code/User
 mkdir -p ~/.config/xfce4/terminal
 ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/accels.scm" ~/.config/xfce4/terminal/accels.scm
 ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/terminalrc" ~/.config/xfce4/terminal/terminalrc
+
+mkdir -p ~/.config/gitui
+ln -nsf "${DOTFILES_DIR}/.config/gitui/key_bindings.ron" ~/.config/gitui/key_bindings.ron
+
