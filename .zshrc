@@ -51,13 +51,19 @@ autoload -Uz compinit && compinit
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
 [ -x "$(command -v k3d)" ] && source <(k3d completion zsh)
-[ -x "$(command -v gcloud)" ] && source "$(gcloud info --format='value(installation.sdk_root)')/completion.zsh.inc"
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
 
 # utils
 function k8s-secret-value() {
     kubectl get secret --no-headers -o custom-columns=":metadata.name" | fzy | xargs kubectl get secret -o json | jq '.data | map_values(@base64d)'
 }
+
+# gcloud SDK
+if [ -x "$(command -v gcloud)" ]; then
+    local sdk_root="$(gcloud info --format='value(installation.sdk_root)')"
+    export PATH="$sdk_root/bin:$PATH"
+    source "$sdk_root/completion.zsh.inc"
+fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
