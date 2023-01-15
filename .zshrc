@@ -15,6 +15,7 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 
 # env vars
+export LANG=en_US.UTF-8
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export EDITOR=vim
@@ -39,6 +40,7 @@ alias k=kubectl
 [ -x "$(command -v exa)" ] && alias ls='exa'
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
 [ -x "$(command -v bat)" ] && alias cat='bat -P'
+[ -f ~/.cargo/env ] && source ~/.cargo/env
 
 # extensions
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
