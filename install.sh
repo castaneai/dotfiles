@@ -19,3 +19,5 @@ ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/terminalrc" ~/.config/xfce4/term
 mkdir -p ~/.config/gitui
 ln -nsf "${DOTFILES_DIR}/.config/gitui/key_bindings.ron" ~/.config/gitui/key_bindings.ron
 
+mkdir -p ~/.config/k9s
+ln -nsf "${DOTFILES_DIR}/.config/k9s/plugin.yml" ~/.config/k9s/plugin.yml
