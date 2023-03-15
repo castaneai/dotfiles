@@ -47,13 +47,20 @@ alias k=kubectl
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.asdf/asdf.sh ] && source ~/.asdf/asdf.sh && fpath=(${ASDF_DIR}/completions $fpath)
 
-# completions
+
+# zsh completions
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 autoload -Uz compinit && compinit
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
 [ -x "$(command -v k3d)" ] && source <(k3d completion zsh)
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
+
+# bash completions
+autoload -Uz +X bashcompinit && bashcompinit
+if type brew &>/dev/null; then
+    [ -x "$(command -v az)" ] && source "$(brew --prefix)/etc/bash_completion.d/az"
+fi
 
 # utils
 function k8s-secret-value() {
@@ -68,4 +75,11 @@ if [ -x "$(command -v gcloud)" ]; then
 fi
 
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# dotnet
+export PATH="$PATH:$HOME/.dotnet/tools"
+
+# Wasmer
+export WASMER_DIR="/Users/castaneai/.wasmer"
+[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
