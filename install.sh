@@ -19,5 +19,11 @@ ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/terminalrc" ~/.config/xfce4/term
 mkdir -p ~/.config/gitui
 ln -nsf "${DOTFILES_DIR}/.config/gitui/key_bindings.ron" ~/.config/gitui/key_bindings.ron
 
-mkdir -p ~/.config/k9s
-ln -nsf "${DOTFILES_DIR}/.config/k9s/plugin.yml" ~/.config/k9s/plugin.yml
+
+OS_CONFIG_DIR="${HOME}/.config"
+if [ "$(uname)" == "Darwin" ]; then
+    OS_CONFIG_DIR="${HOME}/Library/Application Support"
+fi
+mkdir -p "${OS_CONFIG_DIR}/k9s"
+ln -nsf "${DOTFILES_DIR}/.config/k9s/plugin.yml" "${OS_CONFIG_DIR}/k9s/plugin.yml"
+
