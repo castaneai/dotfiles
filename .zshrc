@@ -23,7 +23,7 @@ export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
 # https://github.com/sh0rez/kubectl-neat-diff
-export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
+[ -x "$(command -v kubectl-neat-diff)" ] && export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
 export DOTNET_CLI_UI_LANGUAGE=en
@@ -41,6 +41,7 @@ alias k=kubectl
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
 [ -x "$(command -v bat)" ] && alias cat='bat -P'
 [ -f ~/.cargo/env ] && source ~/.cargo/env
+[ -x "$(command -v colordiff)" ] && alias diff='colordiff -u'
 
 # extensions
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
