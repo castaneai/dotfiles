@@ -2,12 +2,11 @@
     "window.titleBarStyle": "custom",
     "window.customMenuBarAltFocus": false,
     "window.enableMenuBarMnemonics": false,
+    "window.nativeTabs": true,
     "extensions.ignoreRecommendations": true,
     "vim.handleKeys": {
         "<C-x>": false,
         "<C-f>": false
     },
     "rust-client.engine": "rust-analyzer",
-    "editor.fontFamily": "'UDEV Gothic 35NF', monospace",
-    "editor.fontSize": 16
 }
