@@ -81,6 +81,12 @@ fi
 export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Wasmer
-export WASMER_DIR="/Users/castaneai/.wasmer"
+export WASMER_DIR="${HOME}/.wasmer"
 [ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
+# bun
+if type bun &>/dev/null; then
+    export BUN_INSTALL="$HOME/.bun"
+    export PATH="$BUN_INSTALL/bin:$PATH"
+    [ -s "${BUN_INSTALL}/_bun" ] && source "${BUN_INSTALL}/_bun"
+fi
