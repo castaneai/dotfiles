@@ -75,7 +75,6 @@ if [ -x "$(command -v gcloud)" ]; then
     source "$sdk_root/completion.zsh.inc"
 fi
 
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # dotnet
 export PATH="$PATH:$HOME/.dotnet/tools"
@@ -93,4 +92,10 @@ fi
 
 # direnv
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
+
+# rancher desktop
+[ -s "$HOME/.rd" ]  && export PATH="$HOME/.rd/bin:$PATH"
+
+# local zshrc
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
