@@ -51,6 +51,7 @@ alias k=kubectl
 
 # zsh completions
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+autoload -Uz +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
@@ -58,7 +59,6 @@ autoload -Uz compinit && compinit
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
 
 # bash completions
-autoload -Uz +X bashcompinit && bashcompinit
 if type brew &>/dev/null; then
     [ -x "$(command -v az)" ] && source "$(brew --prefix)/etc/bash_completion.d/az"
 fi
