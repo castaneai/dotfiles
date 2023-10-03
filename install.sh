@@ -26,3 +26,7 @@ ln -nsf "${DOTFILES_DIR}/.config/gitui/key_bindings.ron" ~/.config/gitui/key_bin
 
 mkdir -p "${OS_CONFIG_DIR}/k9s"
 ln -nsf "${DOTFILES_DIR}/.config/k9s/plugin.yml" "${OS_CONFIG_DIR}/k9s/plugin.yml"
+
+mkdir -p ~/.config/git
+ln -nsf "${DOTFILES_DIR}/.config/git/ignore" ~/.config/git/ignore
+
