@@ -8,7 +8,9 @@
         "<C-x>": false,
         "<C-f>": false
     },
-    "rust-client.engine": "rust-analyzer",
     "explorer.confirmDelete": false,
     "git.openRepositoryInParentFolders": "never",
+    "json.schemas": [
+        {"fileMatch": ["*.asmdef"], "url": "https://json.schemastore.org/asmdef.json"}
+    ],
 }
