@@ -19,7 +19,7 @@ export LANG=en_US.UTF-8
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export EDITOR=vim
-export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH="/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
 # https://github.com/sh0rez/kubectl-neat-diff
@@ -95,6 +95,11 @@ fi
 
 # rancher desktop
 [ -s "$HOME/.rd" ]  && export PATH="$HOME/.rd/bin:$PATH"
+
+# aqua
+if type aqua &>/dev/null; then
+    export PATH="$(aqua root-dir)/bin:$PATH"
+fi
 
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
