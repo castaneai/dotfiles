@@ -9,8 +9,11 @@
         "<C-f>": false
     },
     "explorer.confirmDelete": false,
-    "git.openRepositoryInParentFolders": "never",
+    "git.openRepositoryInParentFolders": "always",
     "json.schemas": [
         {"fileMatch": ["*.asmdef"], "url": "https://json.schemastore.org/asmdef.json"}
     ],
+    // For better syntax highlighting, we recommend enabling semantic highlighting
+    // https://github.com/golang/vscode-go#feature-highlights
+    "gopls": { "ui.semanticTokens": true }
 }
