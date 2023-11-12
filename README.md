@@ -16,7 +16,7 @@ curl -sS https://starship.rs/install.sh | sh
 ## Setup (Ubuntu)
 
 ```sh
-apt install python3-pip xbindkeys exa gitui xdotool
+apt install python3-pip xbindkeys eza gitui xdotool
 pip3 install xkeysnail
 ./.xkeysnail/install.sh
 ```
@@ -24,7 +24,7 @@ pip3 install xkeysnail
 ## Setup (Arch Linux)
 
 ```sh
-sudo pacman -S exa gitui xdotool xorg-xhost
+sudo pacman -S eza gitui xdotool xorg-xhost
 yay -S xkeysnail
 ./.xkeysnail/install.sh
 ```
@@ -32,5 +32,6 @@ yay -S xkeysnail
 ## Setup (macOS)
 
 ```sh
-brew install exa gitui fzy
+brew install eza gitui fzy
 ```
+

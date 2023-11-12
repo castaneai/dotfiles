@@ -37,7 +37,7 @@ alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
 function gfo() { git fetch origin $1:$1 && git branch --set-upstream-to=origin/$1 $1 }
 alias k=kubectl
-[ -x "$(command -v exa)" ] && alias ls='exa'
+[ -x "$(command -v eza)" ] && alias ls='eza'
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
 [ -x "$(command -v bat)" ] && alias cat='bat -P'
 [ -f ~/.cargo/env ] && source ~/.cargo/env
