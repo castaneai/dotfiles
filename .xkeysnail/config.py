@@ -11,7 +11,9 @@ define_modmap({
     Key.CAPSLOCK: Key.LEFT_CTRL
 })
 
-terminals = [term.casefold() for term in ["gnome-terminal", "Xfce4-terminal"]]
+# use `xprop WM_CLASS` to see wm_class of window
+# https://superuser.com/questions/142318/how-can-i-view-the-wmclass-attribute-of-a-window-in-xorg-linux
+terminals = [term.casefold() for term in ["gnome-terminal", "Xfce4-terminal", "org.wezfurlong.wezterm"]]
 
 define_conditional_modmap(lambda wm_class: wm_class.casefold() not in terminals, {
     Key.CAPSLOCK: Key.LEFT_CTRL,
