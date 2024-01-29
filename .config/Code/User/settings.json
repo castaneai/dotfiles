@@ -15,5 +15,13 @@
     ],
     // For better syntax highlighting, we recommend enabling semantic highlighting
     // https://github.com/golang/vscode-go#feature-highlights
-    "gopls": { "ui.semanticTokens": true }
+    "gopls": {
+        "ui.semanticTokens": true,
+        "ui.completion.usePlaceholders": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "vs-kubernetes": {
+        "vs-kubernetes.crd-code-completion": "enabled"
+    },
+    "explorer.confirmDragAndDrop": false
 }
