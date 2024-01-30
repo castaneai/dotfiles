@@ -6,5 +6,6 @@ end
 
 config.color_scheme = 'ayu'
 config.send_composed_key_when_left_alt_is_pressed = true
+config.front_end = 'WebGpu'
 
 return config
