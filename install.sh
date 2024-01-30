@@ -30,3 +30,5 @@ ln -nsf "${DOTFILES_DIR}/.config/k9s/plugin.yml" "${OS_CONFIG_DIR}/k9s/plugin.ym
 mkdir -p ~/.config/git
 ln -nsf "${DOTFILES_DIR}/.config/git/ignore" ~/.config/git/ignore
 
+mkdir -p ~/.config/wezterm
+ln -nsf "${DOTFILES_DIR}/.config/wezterm/wezterm.lua" ~/.config/wezterm/wezterm.lua
