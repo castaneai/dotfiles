@@ -30,7 +30,7 @@ export DOTNET_CLI_UI_LANGUAGE=en
 
 # aliases
 alias ll='ls -la'
-alias ts='gitui'
+alias ts='tig status'
 alias fig='docker compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'

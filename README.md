@@ -13,18 +13,10 @@ git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-## Setup (Ubuntu)
+## Setup (Linux)
 
 ```sh
-apt install python3-pip xbindkeys eza gitui xdotool
-pip3 install xkeysnail
-./.xkeysnail/install.sh
-```
-
-## Setup (Arch Linux)
-
-```sh
-sudo pacman -S eza gitui xdotool xorg-xhost
+sudo pacman -S eza tig xdotool xorg-xhost
 yay -S xkeysnail
 ./.xkeysnail/install.sh
 ```
@@ -32,6 +24,5 @@ yay -S xkeysnail
 ## Setup (macOS)
 
 ```sh
-brew install eza gitui fzy
+brew install eza tig fzy
 ```
-
