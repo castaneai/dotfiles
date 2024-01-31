@@ -95,6 +95,7 @@ fi
 # aqua
 if type aqua &>/dev/null; then
     export PATH="$(aqua root-dir)/bin:$PATH"
+    export AQUA_GLOBAL_CONFIG="$(aqua root-dir)/aqua.yaml"
 fi
 
 # local zshrc
