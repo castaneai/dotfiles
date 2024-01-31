@@ -92,9 +92,6 @@ fi
 # direnv
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
 
-# rancher desktop
-[ -s "$HOME/.rd" ]  && export PATH="$HOME/.rd/bin:$PATH"
-
 # aqua
 if type aqua &>/dev/null; then
     export PATH="$(aqua root-dir)/bin:$PATH"
@@ -102,4 +99,3 @@ fi
 
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
