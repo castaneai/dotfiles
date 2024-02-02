@@ -92,6 +92,14 @@ fi
 # direnv
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
 
+# rancher desktop
+[ -s "$HOME/.rd" ]  && export PATH="$HOME/.rd/bin:$PATH"
+
+# Volta
+# https://docs.volta.sh/guide/getting-started
+export VOLTA_HOME="$HOME/.volta"
+[ -s "${VOLTA_HOME}" ]  && export PATH="${VOLTA_HOME}/bin:$PATH"
+
 # aqua
 if type aqua &>/dev/null; then
     export PATH="$(aqua root-dir)/bin:$PATH"

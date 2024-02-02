@@ -24,5 +24,5 @@
         "vs-kubernetes.crd-code-completion": "enabled"
     },
     "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Default Light Modern"
+    "workbench.colorTheme": "Ayu Mirage Bordered"
 }
