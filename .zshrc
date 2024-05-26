@@ -89,6 +89,10 @@ if type bun &>/dev/null; then
     [ -s "${BUN_INSTALL}/_bun" ] && source "${BUN_INSTALL}/_bun"
 fi
 
+# deno
+export DENO_INSTALL="$HOME/.deno"
+[ -s "${DENO_INSTALL}" ] && export PATH="$DENO_INSTALL/bin:$PATH"
+
 # direnv
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
 
