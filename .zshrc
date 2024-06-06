@@ -35,6 +35,7 @@ alias fig='docker compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
+alias sterngcp=$'stern --template \'{{color .PodColor .PodName}} {{ with $body := .Message | tryParseJSON }}{{ levelColor $body.severity }} [{{ toTimestamp $body.time "15:04:05" "Local" }}] {{ $body.message }}{{ end }}{{ "\\n" }}\''
 function gfo() { git fetch origin $1:$1 && git branch --set-upstream-to=origin/$1 $1 }
 alias k=kubectl
 [ -x "$(command -v eza)" ] && alias ls='eza'
@@ -112,3 +113,4 @@ fi
 
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
