@@ -19,7 +19,7 @@
     ss = status -s
     po = push origin
     co = checkout
-    delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+    delete-merged-branches = !git branch --merged | egrep -v '\\*|main|master|develop' | xargs git branch -d
 [pull]
 	rebase = true
 [init]
