@@ -8,6 +8,9 @@ config.color_scheme = 'ayu'
 config.send_composed_key_when_left_alt_is_pressed = true
 config.front_end = 'WebGpu'
 
+config.initial_rows = 55
+config.initial_cols = 180
+
 wezterm.on('open-uri', function(window, pane, uri)
   -- Do not open `mailto:` link
   local start, match_end = uri:find 'mailto:'
