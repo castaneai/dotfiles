@@ -1,0 +1,20 @@
+{
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 14,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Ayu Mirage"
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false
+    }
+  }
+}

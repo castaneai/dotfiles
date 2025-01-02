@@ -29,3 +29,10 @@ ln -nsf "${DOTFILES_DIR}/.config/git/ignore" ~/.config/git/ignore
 
 mkdir -p ~/.config/wezterm
 ln -nsf "${DOTFILES_DIR}/.config/wezterm/wezterm.lua" ~/.config/wezterm/wezterm.lua
+
+mkdir -p ~/.config/zed
+ln -nsf "${DOTFILES_DIR}/.config/zed/settings.json" ~/.config/zed/settings.json
+
+# Ghostty
+mkdir -p ~/.config/ghostty
+ln -nsf "${DOTFILES_DIR}/.config/ghostty/config" ~/.config/ghostty/config

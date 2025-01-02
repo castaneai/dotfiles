@@ -35,7 +35,6 @@ alias fig='docker compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
 alias br='git switch $(git branch | fzy)'
-alias sterngcp=$'stern --template \'{{color .PodColor .PodName}} {{ with $body := .Message | tryParseJSON }}{{ levelColor $body.severity }} [{{ toTimestamp $body.time "15:04:05" "Local" }}] {{ $body.message }}{{ end }}{{ "\\n" }}\''
 function gfo() { git fetch origin $1:$1 && git branch --set-upstream-to=origin/$1 $1 }
 alias k=kubectl
 [ -x "$(command -v eza)" ] && alias ls='eza'
@@ -58,30 +57,13 @@ autoload -Uz compinit && compinit
 [ -x "$(command -v k3d)" ] && source <(k3d completion zsh)
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
 
-# bash completions
-if type brew &>/dev/null; then
-    [ -x "$(command -v az)" ] && source "$(brew --prefix)/etc/bash_completion.d/az"
-fi
-
 # utils
 function k8s-secret-value() {
     kubectl get secret --no-headers -o custom-columns=":metadata.name" | fzy | xargs kubectl get secret -o json | jq '.data | map_values(@base64d)'
 }
 
-# gcloud SDK
-if [ -x "$(command -v gcloud)" ]; then
-    local sdk_root="$(gcloud info --format='value(installation.sdk_root)')"
-    export PATH="$sdk_root/bin:$PATH"
-    source "$sdk_root/completion.zsh.inc"
-fi
-
-
 # dotnet
 export PATH="$PATH:$HOME/.dotnet/tools"
-
-# Wasmer
-export WASMER_DIR="${HOME}/.wasmer"
-[ -s "$WASMER_DIR/wasmer.sh" ] && source "$WASMER_DIR/wasmer.sh"
 
 # bun
 if type bun &>/dev/null; then
@@ -92,7 +74,7 @@ fi
 
 # deno
 export DENO_INSTALL="$HOME/.deno"
-[ -s "${DENO_INSTALL}" ] && export PATH="$DENO_INSTALL/bin:$PATH"
+[ -s "${DENO_INSTALL}" ] && export PATH="$DENO_INSTALL/bin:$PATH" && . "${DENO_INSTALL}/env"
 
 # direnv
 [ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
