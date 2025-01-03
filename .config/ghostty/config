@@ -1,8 +1,8 @@
 window-padding-x = 10
 window-padding-y = 5
 window-padding-balance = true
-window-theme = ghostty
-background-opacity = 0.96
+window-theme = auto
+background-opacity = 0.90
 background-blur-radius = 20
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
