@@ -16,7 +16,7 @@
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Ayu Mirage"
+    "dark": "Ayu Dark"
   },
   "git": {
     "git_gutter": "tracked_files",
