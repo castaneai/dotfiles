@@ -23,5 +23,8 @@
     "inline_blame": {
       "enabled": false
     }
+  },
+  "terminal": {
+    "font_size": 12
   }
 }

@@ -6,14 +6,10 @@
 ## Setup (common)
 
 ```sh
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-git clone https://github.com/b4b4r07/enhancd ~/.enhancd
-./install.sh
 curl -sS https://starship.rs/install.sh | sh
 ```
 
-## Setup (Linux)
+## Setup (Arch Linux)
 
 ```sh
 sudo pacman -S eza tig xdotool xorg-xhost
@@ -24,5 +20,5 @@ yay -S xkeysnail
 ## Setup (macOS)
 
 ```sh
-brew install eza tig fzy
+brew install fish eza tig fzy
 ```

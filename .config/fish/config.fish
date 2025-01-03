@@ -3,7 +3,7 @@ alias ts='tig status'
 alias fig='docker compose'
 alias reload='exec fish'
 alias gc='git reset --hard HEAD && git clean -df'
-alias br='git switch $(git branch | fzy)'
+alias br="git branch --list | cut -c 3- | fzy | xargs git checkout"
 
 # https://stackoverflow.com/questions/13995857/suppress-or-customize-intro-message-in-fish-shell
 set -U fish_greeting ""
