@@ -36,3 +36,11 @@ ln -nsf "${DOTFILES_DIR}/.config/zed/settings.json" ~/.config/zed/settings.json
 # Ghostty
 mkdir -p ~/.config/ghostty
 ln -nsf "${DOTFILES_DIR}/.config/ghostty/config" ~/.config/ghostty/config
+
+# fish
+mkdir -p ~/.config/fish
+ln -nsf "${DOTFILES_DIR}/.config/fish/config.fish" ~/.config/fish/config.fish
+ln -nsf "${DOTFILES_DIR}/.config/fish/fish_plugins" ~/.config/fish/fish_plugins
+
+# suppress "Last login:" message
+ln -nsf "${DOTFILES_DIR}/.hushlogin" ~/.hushlogin
