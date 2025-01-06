@@ -32,7 +32,7 @@ alias ts='tig status'
 alias fig='docker compose'
 alias reload='exec $SHELL -l'
 alias gc='git reset --hard HEAD && git clean -df'
-alias br='git switch $(git branch | fzy)'
+alias br="git branch --list | cut -c 3- | fzy | xargs git switch"
 function gfo() { git fetch origin $1:$1 && git branch --set-upstream-to=origin/$1 $1 }
 alias k=kubectl
 [ -x "$(command -v eza)" ] && alias ls='eza'
@@ -43,8 +43,6 @@ alias k=kubectl
 
 # extensions
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # zsh completions
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'

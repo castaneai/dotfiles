@@ -6,7 +6,11 @@
 ## Setup (common)
 
 ```sh
+# Install starship
 curl -sS https://starship.rs/install.sh | sh
+
+# Install enhancd
+git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 ```
 
 ## Setup (Arch Linux)
@@ -20,5 +24,5 @@ yay -S xkeysnail
 ## Setup (macOS)
 
 ```sh
-brew install fish eza tig fzy
+brew install eza tig fzy
 ```
