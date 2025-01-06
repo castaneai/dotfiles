@@ -7,7 +7,7 @@ precmd () { vcs_info }
 zstyle ':vcs_info:*' formats "(%b)"
 PROMPT='%~ ${vcs_info_msg_0_} $ '
 
-# history 
+# history
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
 export SAVEHIST=100000
@@ -22,8 +22,6 @@ export EDITOR=vim
 export PATH="/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
-# https://github.com/sh0rez/kubectl-neat-diff
-[ -x "$(command -v kubectl-neat-diff)" ] && export KUBECTL_EXTERNAL_DIFF=kubectl-neat-diff
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
 export DOTNET_CLI_UI_LANGUAGE=en
@@ -65,27 +63,10 @@ function k8s-secret-value() {
 # dotnet
 export PATH="$PATH:$HOME/.dotnet/tools"
 
-# bun
-if type bun &>/dev/null; then
-    export BUN_INSTALL="$HOME/.bun"
-    export PATH="$BUN_INSTALL/bin:$PATH"
-    [ -s "${BUN_INSTALL}/_bun" ] && source "${BUN_INSTALL}/_bun"
-fi
-
 # deno
 export DENO_INSTALL="$HOME/.deno"
-[ -s "${DENO_INSTALL}" ] && export PATH="$DENO_INSTALL/bin:$PATH" && . "${DENO_INSTALL}/env"
-
-# direnv
-[ -x "$(command -v direnv)" ] && eval "$(direnv hook zsh)"
-
-# rancher desktop
-[ -s "$HOME/.rd" ]  && export PATH="$HOME/.rd/bin:$PATH"
-
-# Volta
-# https://docs.volta.sh/guide/getting-started
-export VOLTA_HOME="$HOME/.volta"
-[ -s "${VOLTA_HOME}" ]  && export PATH="${VOLTA_HOME}/bin:$PATH"
+[ -s "${DENO_INSTALL}" ] && export PATH="$DENO_INSTALL/bin:$PATH"
+[ -f "${DENO_INSTALL}/env" ] && . "${DENO_INSTALL}/env"
 
 # aqua
 if type aqua &>/dev/null; then
@@ -95,4 +76,3 @@ fi
 
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
