@@ -43,6 +43,7 @@ alias k=kubectl
 
 # extensions
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zsh completions
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
