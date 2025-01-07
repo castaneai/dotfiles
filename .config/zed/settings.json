@@ -31,5 +31,10 @@
     // undocumented?
     // https://github.com/zed-industries/zed/pull/13546
     "restore_unsaved_buffers": true
+  },
+  "languages": {
+    "YAML": {
+      "formatter": "language_server"
+    }
   }
 }
