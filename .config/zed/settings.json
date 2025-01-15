@@ -35,6 +35,11 @@
   "languages": {
     "YAML": {
       "formatter": "language_server"
+    },
+    "TypeScript": {
+      "prettier": {
+        "semi": "false"
+      }
     }
   }
 }
