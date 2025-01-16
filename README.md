@@ -11,6 +11,10 @@ curl -sS https://starship.rs/install.sh | sh
 
 # Install enhancd
 git clone https://github.com/b4b4r07/enhancd ~/.enhancd
+
+# Install fzf (incremental history search via Ctrl-R)
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 ```
 
 ## Setup (Arch Linux)

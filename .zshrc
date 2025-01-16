@@ -19,7 +19,7 @@ export LANG=en_US.UTF-8
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export EDITOR=vim
-export PATH="/usr/local/bin:$PATH:$GOBIN:$HOME/bin:/usr/local/go/bin:/usr/local/node/bin:${KREW_ROOT:-$HOME/.krew}/bin"
+export PATH="$HOME/bin:$PATH"
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -35,13 +35,12 @@ alias gc='git reset --hard HEAD && git clean -df'
 alias br="git branch --list | cut -c 3- | fzy | xargs git switch"
 function gfo() { git fetch origin $1:$1 && git branch --set-upstream-to=origin/$1 $1 }
 alias k=kubectl
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [ -x "$(command -v eza)" ] && alias ls='eza'
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
 [ -x "$(command -v bat)" ] && alias cat='bat -P'
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 [ -x "$(command -v colordiff)" ] && alias diff='colordiff -u'
-
-# extensions
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
