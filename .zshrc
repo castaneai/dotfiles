@@ -19,7 +19,7 @@ export LANG=en_US.UTF-8
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export EDITOR=vim
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/bin:$GOBIN:$PATH"
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
 export ENHANCD_DISABLE_DOT=1
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -57,9 +57,6 @@ autoload -Uz compinit && compinit
 function k8s-secret-value() {
     kubectl get secret --no-headers -o custom-columns=":metadata.name" | fzy | xargs kubectl get secret -o json | jq '.data | map_values(@base64d)'
 }
-
-# dotnet
-export PATH="$PATH:$HOME/.dotnet/tools"
 
 # deno
 export DENO_INSTALL="$HOME/.deno"
