@@ -1,28 +1,31 @@
 {
-    "window.titleBarStyle": "custom",
-    "window.customMenuBarAltFocus": false,
-    "window.enableMenuBarMnemonics": false,
-    "window.nativeTabs": true,
-    "extensions.ignoreRecommendations": true,
-    "vim.handleKeys": {
-        "<C-x>": false,
-        "<C-f>": false
-    },
-    "explorer.confirmDelete": false,
-    "git.openRepositoryInParentFolders": "always",
-    "json.schemas": [
-        {"fileMatch": ["*.asmdef"], "url": "https://json.schemastore.org/asmdef.json"}
-    ],
-    // For better syntax highlighting, we recommend enabling semantic highlighting
-    // https://github.com/golang/vscode-go#feature-highlights
-    "gopls": {
-        "ui.semanticTokens": true,
-        "ui.completion.usePlaceholders": true
-    },
-    "go.toolsManagement.autoUpdate": true,
-    "vs-kubernetes": {
-        "vs-kubernetes.crd-code-completion": "enabled"
-    },
-    "explorer.confirmDragAndDrop": false,
-    "workbench.colorTheme": "Ayu Mirage Bordered"
+  "window.titleBarStyle": "custom",
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
+  "window.nativeTabs": true,
+  "extensions.ignoreRecommendations": true,
+  "vim.handleKeys": {
+    "<C-x>": false,
+    "<C-f>": false
+  },
+  "explorer.confirmDelete": false,
+  "git.openRepositoryInParentFolders": "always",
+  "json.schemas": [
+    {
+      "fileMatch": ["*.asmdef"],
+      "url": "https://json.schemastore.org/asmdef.json"
+    }
+  ],
+  // For better syntax highlighting, we recommend enabling semantic highlighting
+  // https://github.com/golang/vscode-go#feature-highlights
+  "gopls": {
+    "ui.semanticTokens": true,
+    "ui.completion.usePlaceholders": true
+  },
+  "go.toolsManagement.autoUpdate": true,
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "enabled"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "workbench.colorTheme": "Ayu Mirage Bordered"
 }
