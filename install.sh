@@ -2,7 +2,7 @@
 set -euxo pipefail
 
 DOTFILES_DIR="$(dirname $(readlink -f $0))"
-dotfiles=(.zshrc .tigrc .gitconfig .vimrc .xbindkeysrc .config/starship.toml .config/pulse/default.pa .xkeysnail .xprofile)
+dotfiles=(.zshrc .tigrc .gitconfig .vimrc .xbindkeysrc .config/starship.toml .config/pulse/default.pa .xprofile)
 for f in "${dotfiles[@]}"; do
     mkdir -p ~/$(dirname ${f})
     ln -nsf "${DOTFILES_DIR}/${f}" ~/${f}
@@ -51,3 +51,6 @@ fi
 
 # suppress "Last login:" message
 ln -nsf "${DOTFILES_DIR}/.hushlogin" ~/.hushlogin
+
+mkdir -p ~/.config/autostart
+ln -nsf "${DOTFILES_DIR}/.config/autostart/1password.desktop" ~/.config/autostart/1password.desktop

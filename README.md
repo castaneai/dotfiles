@@ -20,7 +20,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ## Setup (Arch Linux)
 
 ```sh
-sudo pacman -S eza tig
+sudo pacman -S eza tig dex
 paru -S xremap-x11-bin
 ```
 
