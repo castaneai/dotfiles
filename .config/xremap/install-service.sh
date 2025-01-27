@@ -20,13 +20,4 @@ Restart=always
 WantedBy=default.target
 EOS
 
-mkdir -p ~/.config/autostart
-cat <<EOS > ~/.config/autostart/xremap.desktop
-[Desktop Entry]
-Name=Xremap
-Type=Application
-Exec=systemctl --user start xremap
-Terminal=false
-EOS
-
 systemctl --user enable xremap

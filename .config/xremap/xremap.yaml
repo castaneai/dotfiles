@@ -9,6 +9,10 @@ keymap:
       C-f: right
       C-p: up
       C-n: down
+  - name: Emacs binding except terminal
+    application:
+      not: [ghostty]
+    remap:
       C-a: home
       C-e: end
   - name: Web browser
