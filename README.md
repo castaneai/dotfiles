@@ -20,7 +20,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ## Setup (Arch Linux)
 
 ```sh
-sudo pacman -S eza tig dex
+sudo pacman -S eza tig
+
+# Desktop environment
+sudo pacman -S xorg xorg-xinit i3-wm ghostty rofi feh picom
+sudo localectl set-x11-keymap jp
 paru -S xremap-x11-bin
 git clone https://github.com/jluttine/rofi-power-menu ~/.rofi-power-menu
 mkdir -p ~/bin && cp ~/.rofi-power-menu/rofi-power-menu ~/bin/

@@ -48,6 +48,10 @@ if [[ "$(uname)" == "Linux" ]]; then
     mkdir -p ~/.config/i3
     ln -nsf "${DOTFILES_DIR}/.config/i3/config" ~/.config/i3/config
 
+    # picom
+    mkdir -p ~/.config/picom
+    ln -nsf "${DOTFILES_DIR}/.config/picom/picom.conf" ~/.config/picom/picom.conf
+
     # rofi
     mkdir -p ~/.config/rofi
     ln -nsf "${DOTFILES_DIR}/.config/rofi/config.rasi" ~/.config/rofi/config.rasi

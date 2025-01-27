@@ -1,5 +1,5 @@
 [[ -x "$(command -v xbindkeys)" ]] && xbindkeys
-xset r rate 300 25
+xset r rate 200 20
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
