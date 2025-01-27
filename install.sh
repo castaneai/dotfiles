@@ -17,10 +17,6 @@ mkdir -p "${OS_CONFIG_DIR}/Code/User"
 ln -nsf "${DOTFILES_DIR}/.config/Code/User/settings.json" "${OS_CONFIG_DIR}/Code/User/settings.json"
 ln -nsf "${DOTFILES_DIR}/.config/Code/User/keybindings.json" "${OS_CONFIG_DIR}/Code/User/keybindings.json"
 
-mkdir -p ~/.config/xfce4/terminal
-ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/accels.scm" ~/.config/xfce4/terminal/accels.scm
-ln -nsf "${DOTFILES_DIR}/.config/xfce4/terminal/terminalrc" ~/.config/xfce4/terminal/terminalrc
-
 mkdir -p "${OS_CONFIG_DIR}/k9s"
 ln -nsf "${DOTFILES_DIR}/.config/k9s/plugin.yml" "${OS_CONFIG_DIR}/k9s/plugin.yml"
 
@@ -40,6 +36,18 @@ ln -nsf "${DOTFILES_DIR}/.config/ghostty/config" ~/.config/ghostty/config
 # fish
 mkdir -p ~/.config/fish
 ln -nsf "${DOTFILES_DIR}/.config/fish/config.fish" ~/.config/fish/config.fish
+
+# Linux
+if [[ "$(uname)" == "Linux" ]]; then
+    # xremap
+    mkdir -p ~/.config/xremap
+    ln -nsf "${DOTFILES_DIR}/.config/xremap/xremap.yaml" ~/.config/xremap/xremap.yaml
+    ${DOTFILES_DIR}/.config/xremap/install-service.sh
+
+    # i3wm
+    mkdir -p ~/.config/i3
+    ln -nsf "${DOTFILES_DIR}/.config/i3/config" ~/.config/i3/config
+fi
 
 # suppress "Last login:" message
 ln -nsf "${DOTFILES_DIR}/.hushlogin" ~/.hushlogin

@@ -1,0 +1,11 @@
+modmap:
+  - name: caps to ctrl
+    remap:
+      CapsLock: CONTROL_L
+keymap:
+  - name: Emacs binding
+    remap:
+      C-b: left
+      C-f: right
+      C-p: up
+      C-n: down
