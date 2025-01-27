@@ -22,6 +22,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ```sh
 sudo pacman -S eza tig dex
 paru -S xremap-x11-bin
+git clone https://github.com/jluttine/rofi-power-menu ~/.rofi-power-menu
+mkdir -p ~/bin && cp ~/.rofi-power-menu/rofi-power-menu ~/bin/
 ```
 
 ## Setup (macOS)

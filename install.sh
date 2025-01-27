@@ -47,6 +47,10 @@ if [[ "$(uname)" == "Linux" ]]; then
     # i3wm
     mkdir -p ~/.config/i3
     ln -nsf "${DOTFILES_DIR}/.config/i3/config" ~/.config/i3/config
+
+    # rofi
+    mkdir -p ~/.config/rofi
+    ln -nsf "${DOTFILES_DIR}/.config/rofi/config.rasi" ~/.config/rofi/config.rasi
 fi
 
 # suppress "Last login:" message
