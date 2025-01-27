@@ -20,9 +20,8 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ## Setup (Arch Linux)
 
 ```sh
-sudo pacman -S eza tig xdotool xorg-xhost
-yay -S xkeysnail
-./.xkeysnail/install.sh
+sudo pacman -S eza tig
+paru -S xremap-x11-bin
 ```
 
 ## Setup (macOS)
