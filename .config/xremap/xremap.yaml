@@ -9,3 +9,11 @@ keymap:
       C-f: right
       C-p: up
       C-n: down
+      C-a: home
+      C-e: end
+  - name: Web browser
+    application:
+      only: [google-chrome, firefox]
+    remap:
+      Alt-f: C-f
+      Alt-a: C-slash
