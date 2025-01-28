@@ -1,7 +1,7 @@
 if command -v xbindkeys >/dev/null; then
     xbindkeys
 fi
-xset r rate 200 20
+xset r rate 200 25
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx

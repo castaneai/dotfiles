@@ -82,6 +82,9 @@ gaps outer 30px
 default_border pixel 1
 default_floating_border pixel 1
 
+# Win+Shift+S capture screen area to clipboard
+bindsym mod4+shift+s exec maim -s | xclip -selection clipboard -t image/png -i
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
