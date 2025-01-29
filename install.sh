@@ -55,6 +55,11 @@ if [[ "$(uname)" == "Linux" ]]; then
     # rofi
     mkdir -p ~/.config/rofi
     ln -nsf "${DOTFILES_DIR}/.config/rofi/config.rasi" ~/.config/rofi/config.rasi
+
+    # polybar
+    mkdir -p ~/.config/polybar
+    ln -nsf "${DOTFILES_DIR}/.config/polybar/launch.sh" ~/.config/polybar/launch.sh
+    ln -nsf "${DOTFILES_DIR}/.config/polybar/config.ini" ~/.config/polybar/config.ini
 fi
 
 mkdir -p ~/.config/autostart
