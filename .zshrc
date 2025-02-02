@@ -7,6 +7,11 @@ precmd () { vcs_info }
 zstyle ':vcs_info:*' formats "(%b)"
 PROMPT='%~ ${vcs_info_msg_0_} $ '
 
+# completion
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+autoload -Uz +X bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+
 # history
 export HISTFILE=${HOME}/.zsh_history
 export HISTSIZE=1000
@@ -46,9 +51,7 @@ alias k=kubectl
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zsh completions
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
-autoload -Uz +X bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
+[ -x "$(command -v docker)" ] && source <(docker completion zsh)
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
