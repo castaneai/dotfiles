@@ -69,5 +69,8 @@ if type aqua &>/dev/null; then
     export AQUA_GLOBAL_CONFIG="$(aqua root-dir)/aqua.yaml"
 fi
 
+# mise
+[ -f ~/.local/bin/mise ] && eval "$(~/.local/bin/mise activate zsh)"
+
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
