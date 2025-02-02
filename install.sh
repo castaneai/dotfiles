@@ -37,6 +37,10 @@ ln -nsf "${DOTFILES_DIR}/.config/ghostty/config" ~/.config/ghostty/config
 mkdir -p ~/.config/fish
 ln -nsf "${DOTFILES_DIR}/.config/fish/config.fish" ~/.config/fish/config.fish
 
+# mise
+mkdir -p ~/.config/mise
+ln -nsf "${DOTFILES_DIR}/.config/mise/config.toml" ~/.config/mise/config.toml
+
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
     # xremap
@@ -60,7 +64,8 @@ if [[ "$(uname)" == "Linux" ]]; then
     mkdir -p ~/.config/polybar
     ln -nsf "${DOTFILES_DIR}/.config/polybar/launch.sh" ~/.config/polybar/launch.sh
     ln -nsf "${DOTFILES_DIR}/.config/polybar/config.ini" ~/.config/polybar/config.ini
-fi
 
-mkdir -p ~/.config/autostart
-ln -nsf "${DOTFILES_DIR}/.config/autostart/1password.desktop" ~/.config/autostart/1password.desktop
+    # XDG autostart
+    mkdir -p ~/.config/autostart
+    ln -nsf "${DOTFILES_DIR}/.config/autostart/1password.desktop" ~/.config/autostart/1password.desktop
+fi
