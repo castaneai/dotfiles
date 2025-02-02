@@ -21,7 +21,8 @@ export GOBIN=$GOPATH/bin
 export EDITOR=vim
 export PATH="$HOME/bin:$GOBIN:$PATH"
 # 使わない割に他のコマンドと衝突して邪魔だったので無効化
-export ENHANCD_DISABLE_DOT=1
+# https://github.com/babarot/enhancd/blob/main/README.md#double-dot-
+export ENHANCD_ENABLE_DOUBLE_DOT=false
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
 export DOTNET_CLI_UI_LANGUAGE=en
@@ -50,7 +51,6 @@ autoload -Uz +X bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
-[ -x "$(command -v k3d)" ] && source <(k3d completion zsh)
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
 
 # utils
