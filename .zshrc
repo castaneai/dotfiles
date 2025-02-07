@@ -44,7 +44,7 @@ alias k=kubectl
 [ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
 [ -x "$(command -v eza)" ] && alias ls='eza'
 [ -x "$(command -v xdg-open)" ] && alias open=xdg-open
-[ -x "$(command -v bat)" ] && alias cat='bat -P'
+[ -x "$(command -v bat)" ] && alias cat='bat -p --theme=ansi'
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 [ -x "$(command -v colordiff)" ] && alias diff='colordiff -u'
 [ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
