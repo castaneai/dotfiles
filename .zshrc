@@ -54,6 +54,7 @@ alias k=kubectl
 [ -x "$(command -v docker)" ] && source <(docker completion zsh)
 [ -x "$(command -v kubectl)" ] && source <(kubectl completion zsh)
 [ -x "$(command -v aws_completer)" ] && complete -C '$(which aws_completer)' aws
+[ -x "$(command -v terraform)" ] && complete -o nospace -C '$(which terraform)' terraform
 [ -f ~/.enhancd/init.sh ] && source ~/.enhancd/init.sh
 
 # utils
