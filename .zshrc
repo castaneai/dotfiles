@@ -76,5 +76,10 @@ fi
 # mise
 [ -f ~/.local/bin/mise ] && eval "$(~/.local/bin/mise activate zsh)"
 
+# mint
+if type mint &>/dev/null; then
+    export PATH="$HOME/.mint/bin:$PATH"
+fi
+
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
