@@ -2,3 +2,5 @@
 Thumbs.db
 .envrc
 
+
+**/.claude/settings.local.json

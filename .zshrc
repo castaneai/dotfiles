@@ -29,8 +29,7 @@ export PATH="$HOME/bin:$GOBIN:$PATH"
 # https://github.com/babarot/enhancd/blob/main/README.md#double-dot-
 export ENHANCD_ENABLE_DOUBLE_DOT=false
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-# https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
-export DOTNET_CLI_UI_LANGUAGE=en
+
 
 # aliases
 alias ll='ls -la'
@@ -79,6 +78,13 @@ fi
 # mint
 if type mint &>/dev/null; then
     export PATH="$HOME/.mint/bin:$PATH"
+fi
+
+# dotnet
+if type dotnet &>/dev/null; then
+    # https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-environment-variables#dotnet_cli_ui_language
+    export DOTNET_CLI_UI_LANGUAGE=en
+    export PATH="$HOME/.dotnet/tools:$PATH"
 fi
 
 # local zshrc
