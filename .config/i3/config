@@ -90,3 +90,6 @@ exec ghostty
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# polkit agent
+exec --no-startup-id lxpolkit
