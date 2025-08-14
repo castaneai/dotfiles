@@ -1,5 +1,2 @@
 [tools]
 node = "22"
-"npm:pnpm" = "latest"
-usage = "latest"
-yq = "latest"

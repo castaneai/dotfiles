@@ -73,7 +73,9 @@ if type aqua &>/dev/null; then
 fi
 
 # mise
-[ -f ~/.local/bin/mise ] && eval "$(~/.local/bin/mise activate zsh)"
+if type mise &>/dev/null; then
+    eval "$(mise activate zsh)"
+fi
 
 # mint
 if type mint &>/dev/null; then
