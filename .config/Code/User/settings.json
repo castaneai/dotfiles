@@ -27,5 +27,7 @@
     "vs-kubernetes.crd-code-completion": "enabled"
   },
   "explorer.confirmDragAndDrop": false,
-  "workbench.colorTheme": "Ayu Mirage Bordered"
+  "workbench.colorTheme": "Ayu Mirage Bordered",
+  // https://github.com/VSCodeVim/Vim/issues/9672
+  "editor.editContext": false
 }

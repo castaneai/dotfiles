@@ -41,6 +41,11 @@ ln -nsf "${DOTFILES_DIR}/.config/fish/config.fish" ~/.config/fish/config.fish
 mkdir -p ~/.config/mise
 ln -nsf "${DOTFILES_DIR}/.config/mise/config.toml" ~/.config/mise/config.toml
 
+# Codex
+mkdir -p ~/.codex
+ln -nsf "${DOTFILES_DIR}/.codex/config.toml" ~/.codex/config.toml
+ln -nsf "${DOTFILES_DIR}/.codex/AGENTS.md" ~/.codex/AGENTS.md
+
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
     # xremap
