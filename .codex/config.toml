@@ -6,3 +6,7 @@ notify = ["bash", "-lc", "afplay /System/Library/Sounds/Funk.aiff"]
 
 [tools]
 web_search = true
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp@latest"]
