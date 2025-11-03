@@ -32,6 +32,7 @@ ln -nsf "${DOTFILES_DIR}/.config/zed/settings.json" ~/.config/zed/settings.json
 # Ghostty
 mkdir -p ~/.config/ghostty
 ln -nsf "${DOTFILES_DIR}/.config/ghostty/config" ~/.config/ghostty/config
+ln -nsf "${DOTFILES_DIR}/.config/ghostty/themes" ~/.config/ghostty/themes
 
 # fish
 mkdir -p ~/.config/fish
