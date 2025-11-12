@@ -24,7 +24,7 @@ export LANG=en_US.UTF-8
 export GOPATH=~/go
 export GOBIN=$GOPATH/bin
 export EDITOR=vim
-export PATH="$HOME/bin:$GOBIN:$PATH"
+export PATH="$HOME/bin:$HOME/.local/bin:$GOBIN:$PATH"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 
