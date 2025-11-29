@@ -95,3 +95,6 @@ function change-background-color() {
 
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# uv
+[ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
