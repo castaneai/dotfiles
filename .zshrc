@@ -89,5 +89,9 @@ if type zoxide &>/dev/null; then
     eval "$(zoxide init zsh)"
 fi
 
+function change-background-color() {
+    echo -e "\e]11;${1}\e\\"
+}
+
 # local zshrc
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

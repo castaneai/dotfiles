@@ -10,3 +10,6 @@ background-blur-radius = 20
 macos-titlebar-style = transparent
 macos-titlebar-proxy-icon = hidden
 font-feature = -dlig
+font-family = "Moralerspace Neon"
+
+auto-update-channel = tip
