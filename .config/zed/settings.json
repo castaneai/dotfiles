@@ -1,45 +1,39 @@
 {
-  "assistant": {
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-5-sonnet-latest"
-    },
-    "version": "2"
-  },
+  "icon_theme": "Zed (Default)",
   "telemetry": {
     "metrics": false,
-    "diagnostics": false
+    "diagnostics": false,
   },
   "vim_mode": true,
   "ui_font_size": 14,
-  "buffer_font_size": 14,
+  "buffer_font_size": 12,
   "theme": {
     "mode": "dark",
     "light": "Ayu Light",
-    "dark": "Ayu Dark"
+    "dark": "Ayu Dark",
   },
   "git": {
     "git_gutter": "tracked_files",
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "terminal": {
-    "font_size": 12
+    "font_size": 12,
   },
   "session": {
     // undocumented?
     // https://github.com/zed-industries/zed/pull/13546
-    "restore_unsaved_buffers": true
+    "restore_unsaved_buffers": true,
   },
   "languages": {
     "YAML": {
-      "formatter": "language_server"
+      "formatter": "language_server",
     },
     "TypeScript": {
       "prettier": {
-        "semi": "false"
-      }
-    }
-  }
+        "semi": "false",
+      },
+    },
+  },
 }
