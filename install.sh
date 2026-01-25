@@ -47,6 +47,10 @@ mkdir -p ~/.codex
 ln -nsf "${DOTFILES_DIR}/.codex/config.toml" ~/.codex/config.toml
 ln -nsf "${DOTFILES_DIR}/.codex/AGENTS.md" ~/.codex/AGENTS.md
 
+# Claude Code
+mkdir -p ~/.claude
+ln -nsf "${DOTFILES_DIR}/.claude/skills" ~/.claude/skills
+
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
     # xremap
