@@ -11,7 +11,7 @@ keymap:
       C-n: down
   - name: Emacs binding except terminal
     application:
-      not: [ghostty]
+      not: [/ghostty/, /foot/]
     remap:
       C-a: home
       C-e: end
@@ -20,13 +20,13 @@ keymap:
       Alt-v: C-v
   - name: Terminal
     application:
-      only: [ghostty]
+      only: [/ghostty/, /foot/]
     remap:
       Alt-c: C-shift-c
       Alt-v: C-shift-v
   - name: Web browser
     application:
-      only: [google-chrome, firefox]
+      only: [google-chrome, firefox, zen]
     remap:
       Alt-f: C-f
       Alt-a: C-slash
