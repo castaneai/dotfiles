@@ -50,6 +50,7 @@ ln -nsf "${DOTFILES_DIR}/.codex/AGENTS.md" ~/.codex/AGENTS.md
 # Claude Code
 mkdir -p ~/.claude
 ln -nsf "${DOTFILES_DIR}/.claude/skills" ~/.claude/skills
+ln -nsf "${DOTFILES_DIR}/.claude/CLAUDE.md" ~/.claude/CLAUDE.md
 
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
