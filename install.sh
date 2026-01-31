@@ -59,24 +59,22 @@ if [[ "$(uname)" == "Linux" ]]; then
     ln -nsf "${DOTFILES_DIR}/.config/xremap/xremap.yaml" ~/.config/xremap/xremap.yaml
     ${DOTFILES_DIR}/.config/xremap/install-service.sh
 
-    # i3wm
-    mkdir -p ~/.config/i3
-    ln -nsf "${DOTFILES_DIR}/.config/i3/config" ~/.config/i3/config
+    # X11 desktop
+    if command -v Xorg &>/dev/null; then
+        # i3wm
+        mkdir -p ~/.config/i3
+        ln -nsf "${DOTFILES_DIR}/.config/i3/config" ~/.config/i3/config
 
-    # picom
-    mkdir -p ~/.config/picom
-    ln -nsf "${DOTFILES_DIR}/.config/picom/picom.conf" ~/.config/picom/picom.conf
+        # picom
+        mkdir -p ~/.config/picom
+        ln -nsf "${DOTFILES_DIR}/.config/picom/picom.conf" ~/.config/picom/picom.conf
 
-    # rofi
-    mkdir -p ~/.config/rofi
-    ln -nsf "${DOTFILES_DIR}/.config/rofi/config.rasi" ~/.config/rofi/config.rasi
+        # rofi
+        mkdir -p ~/.config/rofi
+        ln -nsf "${DOTFILES_DIR}/.config/rofi/config.rasi" ~/.config/rofi/config.rasi
 
-    # polybar
-    mkdir -p ~/.config/polybar
-    ln -nsf "${DOTFILES_DIR}/.config/polybar/launch.sh" ~/.config/polybar/launch.sh
-    ln -nsf "${DOTFILES_DIR}/.config/polybar/config.ini" ~/.config/polybar/config.ini
-
-    # XDG autostart
-    mkdir -p ~/.config/autostart
-    ln -nsf "${DOTFILES_DIR}/.config/autostart/1password.desktop" ~/.config/autostart/1password.desktop
+        # polybar
+        mkdir -p ~/.config/polybar
+        ln -nsf "${DOTFILES_DIR}/.config/polybar/launch.sh" ~/.config/polybar/launch.sh
+        ln -nsf "${DOTFILES_DIR}/.config/polybar/config.ini" ~/.config/polybar/config.ini    fi
 fi
