@@ -76,5 +76,6 @@ if [[ "$(uname)" == "Linux" ]]; then
         # polybar
         mkdir -p ~/.config/polybar
         ln -nsf "${DOTFILES_DIR}/.config/polybar/launch.sh" ~/.config/polybar/launch.sh
-        ln -nsf "${DOTFILES_DIR}/.config/polybar/config.ini" ~/.config/polybar/config.ini    fi
+        ln -nsf "${DOTFILES_DIR}/.config/polybar/config.ini" ~/.config/polybar/config.ini
+    fi
 fi
