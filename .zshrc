@@ -89,6 +89,11 @@ if type zoxide &>/dev/null; then
     eval "$(zoxide init zsh)"
 fi
 
+# Bun
+if type bun &>/dev/null; then
+    export PATH="$HOME/.bun/bin:$PATH"
+fi
+
 function change-background-color() {
     echo -e "\e]11;${1}\e\\"
 }
