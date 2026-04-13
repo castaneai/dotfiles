@@ -50,6 +50,8 @@ ln -nsf "${DOTFILES_DIR}/.codex/AGENTS.md" ~/.codex/AGENTS.md
 # Claude Code
 mkdir -p ~/.claude
 ln -nsf "${DOTFILES_DIR}/.claude/skills" ~/.claude/skills
+ln -nsf "${DOTFILES_DIR}/.claude/commands" ~/.claude/commands
+ln -nsf "${DOTFILES_DIR}/.claude/agents" ~/.claude/agents
 ln -nsf "${DOTFILES_DIR}/.claude/CLAUDE.md" ~/.claude/CLAUDE.md
 ln -nsf "${DOTFILES_DIR}/.claude/statusline.sh" ~/.claude/statusline.sh
 # settings.json はマシン固有の設定を含むため、statusLine のみ jq でマージ
