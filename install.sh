@@ -54,14 +54,7 @@ ln -nsf "${DOTFILES_DIR}/.claude/commands" ~/.claude/commands
 ln -nsf "${DOTFILES_DIR}/.claude/agents" ~/.claude/agents
 ln -nsf "${DOTFILES_DIR}/.claude/CLAUDE.md" ~/.claude/CLAUDE.md
 ln -nsf "${DOTFILES_DIR}/.claude/statusline.sh" ~/.claude/statusline.sh
-# settings.json はマシン固有の設定を含むため、statusLine のみ jq でマージ
-CLAUDE_SETTINGS="${HOME}/.claude/settings.json"
-if [ -f "$CLAUDE_SETTINGS" ]; then
-    jq '.statusLine = {"type": "command", "command": "~/.claude/statusline.sh"}' \
-        "$CLAUDE_SETTINGS" > "$CLAUDE_SETTINGS.tmp" && mv "$CLAUDE_SETTINGS.tmp" "$CLAUDE_SETTINGS"
-else
-    echo '{"statusLine":{"type":"command","command":"~/.claude/statusline.sh"}}' | jq . > "$CLAUDE_SETTINGS"
-fi
+ln -nsf "${DOTFILES_DIR}/.claude/settings.json" ~/.claude/settings.json
 
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
