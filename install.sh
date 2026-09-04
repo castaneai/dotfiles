@@ -42,20 +42,6 @@ ln -nsf "${DOTFILES_DIR}/.config/fish/config.fish" ~/.config/fish/config.fish
 mkdir -p ~/.config/mise
 ln -nsf "${DOTFILES_DIR}/.config/mise/config.toml" ~/.config/mise/config.toml
 
-# Codex
-mkdir -p ~/.codex
-ln -nsf "${DOTFILES_DIR}/.codex/config.toml" ~/.codex/config.toml
-ln -nsf "${DOTFILES_DIR}/.codex/AGENTS.md" ~/.codex/AGENTS.md
-
-# Claude Code
-mkdir -p ~/.claude
-ln -nsf "${DOTFILES_DIR}/.claude/skills" ~/.claude/skills
-ln -nsf "${DOTFILES_DIR}/.claude/commands" ~/.claude/commands
-ln -nsf "${DOTFILES_DIR}/.claude/agents" ~/.claude/agents
-ln -nsf "${DOTFILES_DIR}/.claude/CLAUDE.md" ~/.claude/CLAUDE.md
-ln -nsf "${DOTFILES_DIR}/.claude/statusline.sh" ~/.claude/statusline.sh
-ln -nsf "${DOTFILES_DIR}/.claude/settings.json" ~/.claude/settings.json
-
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
     # xremap

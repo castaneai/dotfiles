@@ -29,5 +29,6 @@
   "explorer.confirmDragAndDrop": false,
   "workbench.colorTheme": "Ayu Mirage Bordered",
   // https://github.com/VSCodeVim/Vim/issues/9672
-  "editor.editContext": false
+  "editor.editContext": false,
+  "extensions.autoUpdate": "off"
 }
